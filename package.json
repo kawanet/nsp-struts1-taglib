@@ -1,0 +1,58 @@
+{
+  "name": "nsp-struts1-taglib",
+  "description": "NSP taglib for Apache Struts1 Tag Library",
+  "version": "0.0.1",
+  "author": "@kawanet",
+  "bugs": {
+    "url": "https://github.com/kawanet/nsp-struts1-taglib/issues"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^20.5.1",
+    "mocha": "^10.2.0",
+    "nsp-server-pages": "^0.0.1",
+    "typescript": "^5.1.6"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./esm/src/index.js",
+        "types": "./types/index.d.ts"
+      },
+      "require": "./cjs/src/index.js"
+    }
+  },
+  "files": [
+    "cjs/package.json",
+    "cjs/src/**/*.js",
+    "esm/src/**/*.js",
+    "package.json",
+    "types/*.d.ts"
+  ],
+  "homepage": "https://github.com/kawanet/nsp-struts1-taglib#readme",
+  "keywords": [
+    "JSP",
+    "Struts",
+    "Tomcat",
+    "taglib"
+  ],
+  "license": "Apache-2.0",
+  "main": "./esm/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kawanet/nsp-struts1-taglib.git"
+  },
+  "scripts": {
+    "build": "make clean all",
+    "build-cjs": "tsc -p tsconfig-cjs.json",
+    "build-esm": "tsc -p tsconfig.json",
+    "fixpack": "fixpack",
+    "prepack": "npm run build && npm run test",
+    "test": "make test",
+    "test-cjs": "mocha cjs/test",
+    "test-esm": "mocha esm/test"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "types": "./types/index.d.ts"
+}
