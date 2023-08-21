@@ -8,7 +8,7 @@
 - `<bean:xxx/>`
 - `<html:xxx/>`
 - `<logic:xxx/>`
-- See TypeScript declaration [index.d.ts](https://github.com/kawanet/nsp-jstl-taglib/blob/main/index.d.ts) for API detail.
+- See [TypeScript declaration files](https://github.com/kawanet/nsp-struts1-taglib/blob/main/types/) for API detail.
 
 ## SYNOPSIS
 
