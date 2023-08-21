@@ -89,7 +89,6 @@ declare namespace Struts1Html {
          * <dd>Struts 1.3</dd></dl>
          */
         ref?: string;
-
     }
 
     /**
@@ -287,7 +286,6 @@ declare namespace Struts1Html {
          * [Body of this tag (if any), or "Click"]
          */
         value?: string;
-
     }
 
     /**
@@ -480,7 +478,6 @@ declare namespace Struts1Html {
          * [Body of this tag (if any), or "Cancel"]
          */
         value?: string;
-
     }
 
     /**
@@ -744,7 +741,6 @@ declare namespace Struts1Html {
          * the value "on" will be returned.
          */
         value?: string;
-
     }
 
     /**
@@ -846,7 +842,6 @@ declare namespace Struts1Html {
          * <dd>Struts 1.2.5</dd></dl>
          */
         suffix?: string;
-
     }
 
     /**
@@ -1142,7 +1137,6 @@ declare namespace Struts1Html {
          * property is not specified]
          */
         value?: string;
-
     }
 
     /**
@@ -1292,7 +1286,6 @@ declare namespace Struts1Html {
          * for use in framed presentations.
          */
         target?: string;
-
     }
 
     /**
@@ -1603,7 +1596,6 @@ declare namespace Struts1Html {
          * in the receiving Action.</p>
          */
         transaction?: string;
-
     }
 
     /**
@@ -1810,7 +1802,6 @@ declare namespace Struts1Html {
          * hidden element is created.
          */
         write?: string;
-
     }
 
     /**
@@ -1853,7 +1844,6 @@ declare namespace Struts1Html {
          * <dd>Struts 1.4</dd></dl>
          */
         xhtmlVersion?: string;
-
     }
 
     /**
@@ -2105,7 +2095,6 @@ declare namespace Struts1Html {
          * is pressed.</p>
          */
         value?: string;
-
     }
 
     /**
@@ -2521,7 +2510,6 @@ declare namespace Struts1Html {
          * to help the browser render the page faster.</p>
          */
         width?: string;
-
     }
 
     /**
@@ -2646,7 +2634,6 @@ declare namespace Struts1Html {
          * <dd>Struts 1.2.7</dd></dl>
          */
         bundle?: string;
-
     }
 
     /**
@@ -2848,7 +2835,6 @@ declare namespace Struts1Html {
          * for this element.</p>
          */
         titleKey?: string;
-
     }
 
     /**
@@ -3263,7 +3249,6 @@ declare namespace Struts1Html {
          * URLEncoding is done on parameters of the URL.</p>
          */
         useLocalEncoding?: string;
-
     }
 
     /**
@@ -3294,7 +3279,6 @@ declare namespace Struts1Html {
          * this hyperlink.</p>
          */
         value?: string;
-
     }
 
     /**
@@ -3401,7 +3385,6 @@ declare namespace Struts1Html {
          * <dd>Struts 1.4</dd></dl>
          */
         count?: string;
-
     }
 
     /**
@@ -3654,7 +3637,6 @@ declare namespace Struts1Html {
          * checked when the form is submitted.
          */
         value?: string;
-
     }
 
     /**
@@ -3765,7 +3747,6 @@ declare namespace Struts1Html {
          * selected by the user.
          */
         value: string;
-
     }
 
     /**
@@ -3903,7 +3884,6 @@ declare namespace Struts1Html {
          * (renders a "class" attribute).
          */
         styleClass?: string;
-
     }
 
     /**
@@ -3980,7 +3960,6 @@ declare namespace Struts1Html {
          * the value to be rendered for each option. Defaults to "value".
          */
         value?: string;
-
     }
 
     /**
@@ -4268,7 +4247,6 @@ declare namespace Struts1Html {
          * [Body of this tag (if any)]
          */
         value?: string;
-
     }
 
     /**
@@ -4536,7 +4514,6 @@ declare namespace Struts1Html {
          * <dd>Struts 1.1</dd></dl>
          */
         idName?: string;
-
     }
 
     /**
@@ -4717,7 +4694,6 @@ declare namespace Struts1Html {
          * [Body of this tag (if any), or "Reset"]
          */
         value?: string;
-
     }
 
     /**
@@ -4883,7 +4859,6 @@ declare namespace Struts1Html {
          * URLEncoding is done on parameters of the URL.</p>
          */
         useLocalEncoding?: string;
-
     }
 
     /**
@@ -5159,7 +5134,6 @@ declare namespace Struts1Html {
          * The value to compare with for marking an option selected.
          */
         value?: string;
-
     }
 
     /**
@@ -5345,7 +5319,6 @@ declare namespace Struts1Html {
          * The value of the button label.
          */
         value?: string;
-
     }
 
     /**
@@ -5615,7 +5588,6 @@ declare namespace Struts1Html {
          * corresponding bean property value]
          */
         value?: string;
-
     }
 
     /**
@@ -5887,7 +5859,6 @@ declare namespace Struts1Html {
          * corresponding bean property value]
          */
         value?: string;
-
     }
 
     /**
@@ -5916,6 +5887,5 @@ declare namespace Struts1Html {
          * setting.  If not specified, the default is page scope.</p>
          */
         scope?: string;
-
     }
 }

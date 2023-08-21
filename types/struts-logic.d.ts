@@ -121,7 +121,6 @@ declare namespace Struts1Logic {
          * <code>name</code> property, or "any scope" if not specified.</p>
          */
         scope?: string;
-
     }
 
     /**
@@ -184,7 +183,6 @@ declare namespace Struts1Logic {
          * attribute(s) of this tag, will be compared.</p>
          */
         value: string;
-
     }
 
     /**
@@ -211,7 +209,6 @@ declare namespace Struts1Logic {
          * </p>
          */
         name: string;
-
     }
 
     /**
@@ -274,7 +271,6 @@ declare namespace Struts1Logic {
          * attribute(s) of this tag, will be compared.</p>
          */
         value: string;
-
     }
 
     /**
@@ -337,7 +333,6 @@ declare namespace Struts1Logic {
          * attribute(s) of this tag, will be compared.</p>
          */
         value: string;
-
     }
 
     /**
@@ -463,7 +458,6 @@ declare namespace Struts1Logic {
          * request time ClassCastException will occur.</p>
          */
         type?: string;
-
     }
 
     /**
@@ -526,7 +520,6 @@ declare namespace Struts1Logic {
          * attribute(s) of this tag, will be compared.</p>
          */
         value: string;
-
     }
 
     /**
@@ -589,7 +582,6 @@ declare namespace Struts1Logic {
          * attribute(s) of this tag, will be compared.</p>
          */
         value: string;
-
     }
 
     /**
@@ -660,7 +652,6 @@ declare namespace Struts1Logic {
          * of the specified variable.</p>
          */
         value: string;
-
     }
 
     /**
@@ -706,7 +697,6 @@ declare namespace Struts1Logic {
          * </p>
          */
         message?: string;
-
     }
 
     /**
@@ -763,7 +753,6 @@ declare namespace Struts1Logic {
          * <dd>Struts 1.4</dd></dl>
          */
         count?: string;
-
     }
 
     /**
@@ -810,7 +799,6 @@ declare namespace Struts1Logic {
          * <code>name</code> property, or "any scope" if not specified.</p>
          */
         scope?: string;
-
     }
 
     /**
@@ -873,7 +861,6 @@ declare namespace Struts1Logic {
          * attribute(s) of this tag, will be compared.</p>
          */
         value: string;
-
     }
 
     /**
@@ -944,7 +931,6 @@ declare namespace Struts1Logic {
          * of the specified variable.</p>
          */
         value: string;
-
     }
 
     /**
@@ -1014,7 +1000,6 @@ declare namespace Struts1Logic {
          * specified name.</p>
          */
         user?: string;
-
     }
 
     /**
@@ -1088,7 +1073,6 @@ declare namespace Struts1Logic {
          * specified name.</p>
          */
         user?: string;
-
     }
 
     /**
@@ -1296,6 +1280,5 @@ declare namespace Struts1Logic {
          * URLEncoding is done on parameters of the URL.</p>
          */
         useLocalEncoding?: string;
-
     }
 }

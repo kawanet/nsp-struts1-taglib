@@ -82,7 +82,6 @@ declare namespace Struts1Bean {
          * specified name was included in this request.</p>
          */
         value?: string;
-
     }
 
     /**
@@ -208,7 +207,6 @@ declare namespace Struts1Bean {
          * <code>name</code> attribute or nested body content.</p>
          */
         value?: string;
-
     }
 
     /**
@@ -257,7 +255,6 @@ declare namespace Struts1Bean {
          * specified name was included in this request.</p>
          */
         value?: string;
-
     }
 
     /**
@@ -333,7 +330,6 @@ declare namespace Struts1Bean {
          * URL for this include.</p>
          */
         transaction?: string;
-
     }
 
     /**
@@ -429,7 +425,6 @@ declare namespace Struts1Bean {
          * <code>PageContext.findAttribute()</code> are applied.</p>
          */
         scope?: string;
-
     }
 
     /**
@@ -461,7 +456,6 @@ declare namespace Struts1Bean {
          * </p>
          */
         property: string;
-
     }
 
     /**
@@ -510,7 +504,6 @@ declare namespace Struts1Bean {
          * specified name was included in this request.</p>
          */
         value?: string;
-
     }
 
     /**
@@ -548,7 +541,6 @@ declare namespace Struts1Bean {
          * resource to be loaded and made available.</p>
          */
         name: string;
-
     }
 
     /**
@@ -607,7 +599,6 @@ declare namespace Struts1Bean {
          * scopes are searched in ascending sequence.</p>
          */
         scope?: string;
-
     }
 
     /**
@@ -652,7 +643,6 @@ declare namespace Struts1Bean {
          * definition object to be exposed.</p>
          */
         mapping?: string;
-
     }
 
     /**
@@ -797,6 +787,5 @@ declare namespace Struts1Bean {
          * <code>PageContext.findAttribute()</code> are applied.</p>
          */
         scope?: string;
-
     }
 }
