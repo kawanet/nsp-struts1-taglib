@@ -4,6 +4,7 @@
     "tmp/"
   ],
   "include": [
+    "index.ts",
     "src/",
     "test/",
     "types/"
@@ -11,7 +12,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "module": "ESNext",
-    "moduleResolution": "nodenext",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "noImplicitReturns": false,
     "noImplicitThis": true,
