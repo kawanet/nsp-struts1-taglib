@@ -1,9 +1,9 @@
 /**
  * @see https://github.com/kawanet/nsp-struts1-taglib
  */
-import {Struts1Bean} from "./types/struts-bean.js";
-import {Struts1Html} from "./types/struts-html.js";
-import {Struts1Logic} from "./types/struts-logic.js";
+import type {Struts1Bean} from "./types/struts-bean.js";
+import type {Struts1Html} from "./types/struts-html.js";
+import type {Struts1Logic} from "./types/struts-logic.js";
 
 export {Struts1Bean, Struts1Html, Struts1Logic};
 

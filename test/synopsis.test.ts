@@ -1,6 +1,6 @@
 import {strict as assert} from "assert";
 import {createNSP} from "nsp-server-pages";
-import {beanTags, htmlTags, logicTags} from "../src/index.js";
+import {beanTags, htmlTags, logicTags} from "../index.js";
 
 const TITLE = "synopsis.test.ts";
 
