@@ -22,7 +22,7 @@ nsp.addTagLib({ns: "bean", tag: beanTags});
 nsp.addTagLib({ns: "html", tag: htmlTags});
 nsp.addTagLib({ns: "logic", tag: logicTags});
 
-const render = await nsp.loadJSP("template.jsp");
+const render = await nsp.loadJSP("path/to/template.jsp");
 
 console.log(await render({...}));
 ```
@@ -39,9 +39,9 @@ const {cTags, fmtTags, fnFunctions} = require("nsp-jstl-taglib");
 ## LINKS
 
 - https://github.com/kawanet/nsp-server-pages
-- https://github.com/kawanet/nsp-struts1-taglib
 - https://github.com/kawanet/nsp-jstl-taglib
-- https://www.npmjs.com/package/nsp-struts1-taglib
+- https://github.com/kawanet/nsp-struts1-taglib
+- https://github.com/kawanet/nsp-seasar2-taglib
 - https://github.com/apache/struts1
 - https://github.com/apache/struts1/tree/trunk/taglib/src/main/java/org/apache/struts/taglib
 - https://github.com/apache/struts1/tree/trunk/taglib/src/main/resources/META-INF/tld
