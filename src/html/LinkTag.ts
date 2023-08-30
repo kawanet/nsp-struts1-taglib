@@ -13,12 +13,12 @@ export const linkTag: NSP.TagFn<Struts1Html.LinkTagAttr> = (tag) => {
 
         const attr = tag.attr(context);
 
-        const handler = new BaseHandlerTag(tag.app, attr, context);
+        const handler = new LinkTag(tag.app, attr, context);
 
         const results = new StringBuffer();
         results.append("<a");
         results.attr("name", attr.name);
-        results.attr("href", calculateURL(attr));
+        results.attr("href", handler.calculateURL(attr));
         results.attr("target", attr.target);
         results.attr("accesskey", attr.accesskey);
         results.attr("tabindex", attr.tabindex);
@@ -27,14 +27,22 @@ export const linkTag: NSP.TagFn<Struts1Html.LinkTagAttr> = (tag) => {
         handler.prepareOtherAttributes(results);
         results.append(">");
 
-        return tag.app.concat(results.toString(), tag.body(context), "</a>");
+        results.append(tag.body(context));
+
+        results.append("</a>");
+
+        return results.toString();
     };
 };
 
-const calculateURL = (attr: Struts1Html.LinkTagAttr) => {
-    if (attr.action) {
-        throw new Error(`Not supported: action="${attr.action}"`);
-    }
+class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
+    protected attr: Struts1Html.LinkTagAttr;
 
-    return attr.page;
-};
+    calculateURL(attr: Struts1Html.LinkTagAttr) {
+        if (attr.action) {
+            throw new Error(`Not supported: action="${attr.action}"`);
+        }
+
+        return attr.page;
+    }
+}

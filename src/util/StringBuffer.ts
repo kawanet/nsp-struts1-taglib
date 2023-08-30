@@ -1,9 +1,10 @@
 import {$$} from "telesy";
+import {concat} from "./concat.js";
 
 export class StringBuffer {
-    protected buffer: string[] = [];
+    protected buffer: (string | Promise<string>)[] = [];
 
-    append(str: string) {
+    append(str: string | Promise<string>) {
         if (str != null) {
             this.buffer.push(str);
         }
@@ -18,6 +19,6 @@ export class StringBuffer {
     }
 
     toString() {
-        return this.buffer.join("");
+        return concat(this.buffer);
     }
 }

@@ -2,7 +2,7 @@ import type {NSP} from "nsp-server-pages";
 import type {BaseHandlerTagAttr} from "./BaseHandlerTagAttr.js";
 import {StringBuffer} from "./StringBuffer.js";
 
-export class BaseHandlerTag {
+export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> {
     /**
      * Indicates whether 'disabled' is a valid attribute.
      */
@@ -13,7 +13,7 @@ export class BaseHandlerTag {
      */
     protected doReadonly: boolean = false;
 
-    constructor(protected app: NSP.App, protected attr: Partial<BaseHandlerTagAttr>, protected context: any) {
+    constructor(protected app: NSP.App, protected attr: A, protected context: any) {
         //
     }
 
@@ -21,7 +21,7 @@ export class BaseHandlerTag {
         return false;
     }
 
-    prepareStyles(): string {
+    prepareStyles() {
         const errorsExist = this.doErrorsExist();
         const {attr} = this;
         const styles = new StringBuffer();
@@ -55,7 +55,7 @@ export class BaseHandlerTag {
         return styles.toString();
     }
 
-    prepareEventHandlers(): string {
+    prepareEventHandlers() {
         const handlers = new StringBuffer();
 
         this.prepareMouseEvents(handlers);
@@ -112,7 +112,7 @@ export class BaseHandlerTag {
         }
     }
 
-    protected prepareInternationalization(handlers: StringBuffer): void {
+    protected prepareInternationalization(handlers: StringBuffer) {
         const {attr} = this;
         handlers.attr("bundle", attr.bundle);
         handlers.attr("dir", attr.dir);
