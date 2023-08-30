@@ -121,4 +121,8 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> {
     prepareOtherAttributes(_: StringBuffer): void {
         //
     }
+
+    getElementClose() {
+        return ">";
+    }
 }
