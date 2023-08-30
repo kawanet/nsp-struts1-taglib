@@ -1,8 +1,8 @@
 import {strict as assert} from "assert";
 import {createNSP} from "nsp-server-pages";
-import {htmlTags} from "../index.js";
+import {htmlTags} from "../../index.js";
 
-const TITLE = "html-link.test.ts";
+const TITLE = "test/html/LinkTagTest.ts";
 
 interface Context {
     //

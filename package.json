@@ -55,8 +55,8 @@
     "fixpack": "fixpack",
     "prepack": "npm run build && npm run test",
     "test": "make test",
-    "test-cjs": "mocha cjs/test",
-    "test-esm": "mocha esm/test"
+    "test-cjs": "mocha cjs/test --recursive",
+    "test-esm": "mocha esm/test --recursive"
   },
   "sideEffects": false,
   "type": "module",
