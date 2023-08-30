@@ -1,5 +1,7 @@
 import type {NSP} from "nsp-server-pages";
 
+export const logicTags: Struts1Logic.logicTags;
+
 /**
  * logic
  * uri: http://struts.apache.org/tags-logic

@@ -1,5 +1,7 @@
 import type {NSP} from "nsp-server-pages";
 
+export const htmlTags: Struts1Html.htmlTags;
+
 /**
  * html
  * uri: http://struts.apache.org/tags-html

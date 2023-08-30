@@ -1,5 +1,7 @@
 import type {NSP} from "nsp-server-pages";
 
+export const beanTags: Struts1Bean.beanTags;
+
 /**
  * bean
  * uri: http://struts.apache.org/tags-bean

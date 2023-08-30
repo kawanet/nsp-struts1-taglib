@@ -18,7 +18,7 @@ esm/%.js: %.ts
 
 types/index.d.ts: index.ts
 	./node_modules/.bin/tsc --outDir tmp/ --declaration --emitDeclarationOnly $<
-	perl -pe 's#(type \{) +(.*?) +(})#$$1$$2$$3#; s#( from ".)/types(/[a-z]+.)#$$1$$2#' < tmp/index.d.ts > $@
+	perl -pe 's#(type \{) +(.*?) +(})#$$1$$2$$3#; s#( from ".)/src/([a-z]+.)#$$1/struts-$$2#' < tmp/index.d.ts > $@
 	/bin/rm -f tmp/*.d.ts tmp/*/*.d.ts
 
 test-title:
