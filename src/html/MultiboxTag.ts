@@ -9,13 +9,19 @@ import {StringBuffer} from "../util/StringBuffer.js";
  * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/MultiboxTag.java
  */
 export const multiboxTag: NSP.TagFn<Struts1Html.MultiboxTagAttr> = (tag) => {
-    return async (context) => {
-        const attr = tag.attr(context);
+    return (context) => {
+        return new MultiboxTag(tag, context).toString();
+    };
+};
 
-        const handler = new MultiboxTag(tag.app, attr, context);
+class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
+    protected attr: Struts1Html.MultiboxTagAttr;
 
-        const body = await tag.body(context);
-        if (body) handler.constant = body.trim();
+    async toString() {
+        const {attr} = this;
+
+        const body = await this.getBody();
+        if (body) this.constant = body.trim();
 
         const results = new StringBuffer(`<input type="checkbox"`);
 
@@ -23,19 +29,17 @@ export const multiboxTag: NSP.TagFn<Struts1Html.MultiboxTagAttr> = (tag) => {
         results.attr("accesskey", attr.accesskey);
         results.attr("tabindex", attr.tabindex);
 
-        const value = handler.prepareValue(results);
+        const value = this.prepareValue(results);
 
-        handler.prepareChecked(results, value);
-        results.append(handler.prepareEventHandlers());
-        results.append(handler.prepareStyles());
-        handler.prepareOtherAttributes(results);
-        results.append(handler.getElementClose());
+        this.prepareChecked(results, value);
+        results.append(this.prepareEventHandlers());
+        results.append(this.prepareStyles());
+        this.prepareOtherAttributes(results);
+        results.append(this.getElementClose());
 
         return results.toString();
-    };
-};
+    }
 
-class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
     /**
      * The constant String value to be returned when this checkbox is selected
      * and the form is submitted.

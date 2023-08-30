@@ -10,33 +10,34 @@ import {StringBuffer} from "../util/StringBuffer.js";
  */
 export const linkTag: NSP.TagFn<Struts1Html.LinkTagAttr> = (tag) => {
     return (context) => {
-
-        const attr = tag.attr(context);
-
-        const handler = new LinkTag(tag.app, attr, context);
-
-        const results = new StringBuffer();
-        results.append("<a");
-        results.attr("name", attr.name);
-        results.attr("href", handler.calculateURL(attr));
-        results.attr("target", attr.target);
-        results.attr("accesskey", attr.accesskey);
-        results.attr("tabindex", attr.tabindex);
-        results.append(handler.prepareStyles());
-        results.append(handler.prepareEventHandlers());
-        handler.prepareOtherAttributes(results);
-        results.append(">");
-
-        results.append(tag.body(context));
-
-        results.append("</a>");
-
-        return results.toString();
+        return new LinkTag(tag, context).toString();
     };
 };
 
 class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
     protected attr: Struts1Html.LinkTagAttr;
+
+    toString() {
+        const {attr} = this;
+
+        const results = new StringBuffer();
+        results.append("<a");
+        results.attr("name", attr.name);
+        results.attr("href", this.calculateURL(attr));
+        results.attr("target", attr.target);
+        results.attr("accesskey", attr.accesskey);
+        results.attr("tabindex", attr.tabindex);
+        results.append(this.prepareStyles());
+        results.append(this.prepareEventHandlers());
+        this.prepareOtherAttributes(results);
+        results.append(">");
+
+        results.append(this.getBody());
+
+        results.append("</a>");
+
+        return results.toString();
+    }
 
     calculateURL(attr: Struts1Html.LinkTagAttr) {
         if (attr.action) {
