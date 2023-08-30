@@ -1,4 +1,3 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
 import {BaseHandlerTag} from "../util/BaseHandlerTag.js";
 import {StringBuffer} from "../util/StringBuffer.js";
@@ -8,13 +7,7 @@ import {StringBuffer} from "../util/StringBuffer.js";
  *
  * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/MultiboxTag.java
  */
-export const multiboxTag: NSP.TagFn<Struts1Html.MultiboxTagAttr> = (tag) => {
-    return (context) => {
-        return new MultiboxTag(tag, context).toString();
-    };
-};
-
-class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
+export class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
     protected attr: Struts1Html.MultiboxTagAttr;
 
     async toString() {

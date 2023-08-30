@@ -1,4 +1,3 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
 import {BaseHandlerTag} from "../util/BaseHandlerTag.js";
 import {StringBuffer} from "../util/StringBuffer.js";
@@ -8,13 +7,7 @@ import {StringBuffer} from "../util/StringBuffer.js";
  *
  * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/LinkTag.java
  */
-export const linkTag: NSP.TagFn<Struts1Html.LinkTagAttr> = (tag) => {
-    return (context) => {
-        return new LinkTag(tag, context).toString();
-    };
-};
-
-class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
+export class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
     protected attr: Struts1Html.LinkTagAttr;
 
     toString() {
