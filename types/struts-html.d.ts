@@ -31,7 +31,7 @@ declare namespace Struts1Html {
         html: NSP.TagFn<HtmlTagAttr>;
         image: NSP.TagFn<ImageTagAttr>;
         img: NSP.TagFn<ImgTagAttr>;
-        javascript: NSP.TagFn<JavascriptValidatorTagAttr>;
+        javascript: NSP.TagFn<JavascriptTagAttr>;
         label: NSP.TagFn<LabelTagAttr>;
         link: NSP.TagFn<LinkTagAttr>;
         param: NSP.TagFn<ParamTagAttr>;
@@ -2539,7 +2539,7 @@ declare namespace Struts1Html {
      * separate JSP page so the browser can cache the static JavaScript.
      * </p>
      */
-    interface JavascriptValidatorTagAttr {
+    interface JavascriptTagAttr {
         /**
          * <p>
          * If set to "true" and XHTML has been enabled, the JavaScript will
