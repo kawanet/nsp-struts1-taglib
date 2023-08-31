@@ -1,10 +1,11 @@
+import {PropertyUtils} from "./PropertyUtils.js";
 import {ResponseUtils} from "./ResponseUtils.js";
 
 export class TagUtils {
-    static instance = new TagUtils();
+    static instance: TagUtils;
 
     static getInstance() {
-        return TagUtils.instance;
+        return TagUtils.instance ??= new TagUtils();
     }
 
     encodeURL(value: string): string {
@@ -31,16 +32,6 @@ export class TagUtils {
             throw new Error(`Cannot find bean: ${name}`);
         }
 
-        const array = String(property).split(/\.|\[(\d+)]/);
-
-        for (const key of array) {
-            if (bean == null) {
-                throw new Error(`Cannot find bean: ${name}.${property}`);
-            }
-
-            bean = bean[key];
-        }
-
-        return bean as T;
+        return PropertyUtils.getProperty(bean, property);
     }
 }
