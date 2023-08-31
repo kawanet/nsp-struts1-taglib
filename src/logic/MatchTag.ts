@@ -19,7 +19,7 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
         const variable = ("string" === typeof target) ? target : String(target);
 
         let matched = false;
-        if (location == null) {
+        if (!location) {
             matched = variable.includes(value);
         } else if (location === "start") {
             matched = variable.startsWith(value);
