@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Logic} from "../../index.js";
+import {CompareTagBase} from "./CompareTagBase.js";
 
 /**
  * <logic:lessThan>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/logic/LessThanTag.java
  */
-export const lessThanTag: NSP.TagFn<Struts1Logic.LessThanTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class LessThanTag extends CompareTagBase<Struts1Logic.LessThanTagAttr> {
+    protected attr: Struts1Logic.LessThanTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <logic:lessThan>");
+        return null as string; // TODO
     };
-};
+}

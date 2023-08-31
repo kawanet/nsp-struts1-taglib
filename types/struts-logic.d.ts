@@ -57,23 +57,23 @@ export const logicTags: Struts1Logic.logicTags;
  */
 declare namespace Struts1Logic {
     type logicTags = {
-        empty: NSP.TagFn<EmptyTagAttr>;
-        equal: NSP.TagFn<EqualTagAttr>;
-        forward: NSP.TagFn<ForwardTagAttr>;
-        greaterEqual: NSP.TagFn<GreaterEqualTagAttr>;
-        greaterThan: NSP.TagFn<GreaterThanTagAttr>;
-        iterate: NSP.TagFn<IterateTagAttr>;
-        lessEqual: NSP.TagFn<LessEqualTagAttr>;
-        lessThan: NSP.TagFn<LessThanTagAttr>;
-        match: NSP.TagFn<MatchTagAttr>;
-        messagesNotPresent: NSP.TagFn<MessagesNotPresentTagAttr>;
-        messagesPresent: NSP.TagFn<MessagesPresentTagAttr>;
-        notEmpty: NSP.TagFn<NotEmptyTagAttr>;
-        notEqual: NSP.TagFn<NotEqualTagAttr>;
-        notMatch: NSP.TagFn<NotMatchTagAttr>;
-        notPresent: NSP.TagFn<NotPresentTagAttr>;
-        present: NSP.TagFn<PresentTagAttr>;
-        redirect: NSP.TagFn<RedirectTagAttr>;
+        empty: NSP.TagCon<EmptyTagAttr>;
+        equal: NSP.TagCon<EqualTagAttr>;
+        forward: NSP.TagCon<ForwardTagAttr>;
+        greaterEqual: NSP.TagCon<GreaterEqualTagAttr>;
+        greaterThan: NSP.TagCon<GreaterThanTagAttr>;
+        iterate: NSP.TagCon<IterateTagAttr>;
+        lessEqual: NSP.TagCon<LessEqualTagAttr>;
+        lessThan: NSP.TagCon<LessThanTagAttr>;
+        match: NSP.TagCon<MatchTagAttr>;
+        messagesNotPresent: NSP.TagCon<MessagesNotPresentTagAttr>;
+        messagesPresent: NSP.TagCon<MessagesPresentTagAttr>;
+        notEmpty: NSP.TagCon<NotEmptyTagAttr>;
+        notEqual: NSP.TagCon<NotEqualTagAttr>;
+        notMatch: NSP.TagCon<NotMatchTagAttr>;
+        notPresent: NSP.TagCon<NotPresentTagAttr>;
+        present: NSP.TagCon<PresentTagAttr>;
+        redirect: NSP.TagCon<RedirectTagAttr>;
     };
 
     /**

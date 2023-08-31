@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Logic} from "../../index.js";
+import {ConditionalTagBase} from "./ConditionalTagBase.js";
 
 /**
  * <logic:messagesPresent>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/logic/MessagesPresentTag.java
  */
-export const messagesPresentTag: NSP.TagFn<Struts1Logic.MessagesPresentTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class MessagesPresentTag extends ConditionalTagBase<Struts1Logic.MessagesPresentTagAttr> {
+    protected attr: Struts1Logic.MessagesPresentTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <logic:messagesPresent>");
+        return null as string; // TODO
     };
-};
+}
