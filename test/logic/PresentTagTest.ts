@@ -5,7 +5,12 @@ import {logicTags} from "../../index.js";
 const TITLE = "test/logic/PresentTagTest.ts";
 
 interface Context {
-    //
+    testBean?: Bean;
+}
+
+interface Bean {
+    fred?: string;
+    stringValue?: string;
 }
 
 /**
@@ -17,10 +22,15 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:present>', async () => {
-        const src = '[]'; // TODO
+        const src = '[<logic:present name="testBean">TRUE</logic:present>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        let ctx: Context = {};
+
+        assert.equal(render(ctx), '[]');
+
+        ctx.testBean = {fred: "Fred"};
+        assert.equal(render(ctx), '[TRUE]');
     });
 });

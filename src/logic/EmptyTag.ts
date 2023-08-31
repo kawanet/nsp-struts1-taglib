@@ -11,7 +11,7 @@ export class EmptyTag extends ConditionalTagBase<Struts1Logic.EmptyTagAttr> {
 
     protected condition() {
         const value = this.getValue();
-        return value == null || value === "";
+        return value == null || value.length === 0;
     }
 
     protected getValue(): any {

@@ -5,7 +5,7 @@ import {logicTags} from "../../index.js";
 const TITLE = "test/logic/EmptyTagTest.ts";
 
 interface Context {
-    //
+    items?: string[];
 }
 
 /**
@@ -17,10 +17,18 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:empty>', async () => {
-        const src = '[]'; // TODO
+        const src = '[<logic:empty name="items">TRUE</logic:empty>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        let ctx: Context = {};
+
+        assert.equal(render(ctx), '[TRUE]');
+
+        ctx.items = [];
+        assert.equal(render(ctx), '[TRUE]');
+
+        ctx.items = ["foo", "bar"];
+        assert.equal(render(ctx), '[]');
     });
 });
