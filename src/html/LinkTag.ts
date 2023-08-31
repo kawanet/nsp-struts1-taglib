@@ -10,7 +10,7 @@ import {StringBuffer} from "../util/StringBuffer.js";
 export class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
     protected attr: Struts1Html.LinkTagAttr;
 
-    toString() {
+    render() {
         const {attr} = this;
 
         const results = new StringBuffer();

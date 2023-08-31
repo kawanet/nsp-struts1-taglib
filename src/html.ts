@@ -1,4 +1,3 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../types/struts-html.js";
 import {baseTag} from "./html/BaseTag.js";
 import {buttonTag} from "./html/ButtonTag.js";
@@ -30,17 +29,6 @@ import {submitTag} from "./html/SubmitTag.js";
 import {textareaTag} from "./html/TextareaTag.js";
 import {textTag} from "./html/TextTag.js";
 import {xhtmlTag} from "./html/XhtmlTag.js";
-import {TagSupport} from "./util/TagSupport.js";
-
-type TagConstructor<A, T> = { new(tag: NSP.TagDef<A>, context: T): TagSupport<A> };
-
-const tagFn = <A, T>(Tag: TagConstructor<A, T>): NSP.TagFn<A, T> => {
-    return (tag) => {
-        return (context) => {
-            return new Tag(tag, context).toString();
-        };
-    };
-};
 
 const htmlTags: Struts1Html.htmlTags = {
     base: baseTag,
@@ -57,10 +45,10 @@ const htmlTags: Struts1Html.htmlTags = {
     img: imgTag,
     javascript: javascriptTag,
     label: labelTag,
-    link: tagFn(LinkTag),
+    link: LinkTag,
     param: paramTag,
     messages: messagesTag,
-    multibox: tagFn(MultiboxTag),
+    multibox: MultiboxTag,
     option: optionTag,
     options: optionsTag,
     optionsCollection: optionsCollectionTag,

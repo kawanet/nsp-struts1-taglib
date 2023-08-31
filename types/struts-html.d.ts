@@ -35,10 +35,10 @@ declare namespace Struts1Html {
         img: NSP.TagFn<ImgTagAttr>;
         javascript: NSP.TagFn<JavascriptTagAttr>;
         label: NSP.TagFn<LabelTagAttr>;
-        link: NSP.TagFn<LinkTagAttr>;
+        link: NSP.TagCon<LinkTagAttr>;
         param: NSP.TagFn<ParamTagAttr>;
         messages: NSP.TagFn<MessagesTagAttr>;
-        multibox: NSP.TagFn<MultiboxTagAttr>;
+        multibox: NSP.TagCon<MultiboxTagAttr>;
         option: NSP.TagFn<OptionTagAttr>;
         options: NSP.TagFn<OptionsTagAttr>;
         optionsCollection: NSP.TagFn<OptionsCollectionTagAttr>;

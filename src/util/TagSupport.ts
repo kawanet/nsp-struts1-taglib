@@ -1,15 +1,16 @@
 import type {NSP} from "nsp-server-pages";
 
-export abstract class TagSupport<A> {
+export abstract class TagSupport<A> implements NSP.TagClass {
     protected attr: A;
 
     /**
      * concrete class must implement this method to provide the content.
      */
-    abstract toString(): string | Promise<string>;
+    abstract render(): string | Promise<string>;
 
     constructor(protected tag: NSP.TagDef<A>, protected context: any) {
         this.attr = tag.attr(context);
+        return this;
     }
 
     /**

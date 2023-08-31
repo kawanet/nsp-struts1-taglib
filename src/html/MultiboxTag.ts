@@ -10,7 +10,7 @@ import {StringBuffer} from "../util/StringBuffer.js";
 export class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
     protected attr: Struts1Html.MultiboxTagAttr;
 
-    async toString() {
+    async render() {
         const {attr} = this;
 
         const body = await this.getBody();
