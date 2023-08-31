@@ -1,5 +1,8 @@
 import type {Struts1Html} from "../../index.js";
+import {StringBuffer} from "../util/StringBuffer.js";
 import {TagSupport} from "../util/TagSupport.js";
+
+const isTrue = (v: any): v is true => (!!v && v !== "false");
 
 /**
  * <html:html>
@@ -10,7 +13,38 @@ export class HtmlTag extends TagSupport<Struts1Html.HtmlTagAttr> {
     protected attr: Struts1Html.HtmlTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:html>");
-        return null as string; // TODO
+        const start = this.renderHtmlStartElement();
+        const body = this.getBody();
+        const end = "</html>";
+
+        return this.tag.app.concat(start, body, end);
     };
+
+    protected renderHtmlStartElement() {
+        const sb = new StringBuffer("<html");
+
+        let language: string;
+        let country: string;
+
+        // TODO
+        // const currentLocale: Locale = TagUtils.getInstance().getUserLocale(this.context);
+        // language = currentLocale.getLanguage();
+        // country = currentLocale.getCountry();
+
+        if (language && isTrue(this.attr.lang)) {
+            sb.append(" lang=\"");
+            sb.append(language);
+
+            if (country) {
+                sb.append("-");
+                sb.append(country);
+            }
+
+            sb.append("\"");
+        }
+
+        sb.append(">");
+
+        return sb.toString();
+    }
 }

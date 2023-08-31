@@ -17,10 +17,10 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:html>', async () => {
-        const src = '[]'; // TODO
+        const src: string = '<html:html>BODY</html:html>';
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        assert.equal(render({}), '<html>BODY</html>');
     });
 });
