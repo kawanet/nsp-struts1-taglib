@@ -17,10 +17,11 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:messagesNotPresent>', async () => {
-        const src = '[]'; // TODO
+        const src: string = '[<logic:messagesNotPresent>messagesNotPresent</logic:messagesNotPresent>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        // it throws on runtime as not implemented yet
+        assert.rejects(async () => render({})); // TODO
     });
 });
