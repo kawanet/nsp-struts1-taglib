@@ -8,12 +8,15 @@ interface Context {
     fruits?: string | string[];
 }
 
+/**
+ * <html:multibox>
+ */
 describe(TITLE, () => {
     const nsp = createNSP();
 
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
-    it('value', async () => {
+    it('Strawberry', async () => {
         const src = '<html:multibox property="fruits" value="Strawberry"/>';
 
         const render = nsp.parse(src).toFn<Context>();
