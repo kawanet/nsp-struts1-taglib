@@ -17,10 +17,11 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:redirect>', async () => {
-        const src = '[]'; // TODO
+        const src = '[<logic:redirect/>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        // it should throw as not implemented by design
+        assert.throws(() => render({}));
     });
 });
