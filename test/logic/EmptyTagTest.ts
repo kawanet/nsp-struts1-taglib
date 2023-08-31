@@ -21,14 +21,15 @@ describe(TITLE, () => {
 
         const render = nsp.parse(src).toFn<Context>();
 
-        let ctx: Context = {};
+        let ctx: Context;
 
+        // Cannot find bean: items
+        await assert.rejects(async () => render(ctx));
+
+        ctx = {items: []};
         assert.equal(render(ctx), '[TRUE]');
 
-        ctx.items = [];
-        assert.equal(render(ctx), '[TRUE]');
-
-        ctx.items = ["foo", "bar"];
+        ctx = {items: ["foo", "bar"]};
         assert.equal(render(ctx), '[]');
     });
 });
