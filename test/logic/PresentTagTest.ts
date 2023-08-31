@@ -21,16 +21,32 @@ describe(TITLE, () => {
 
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
-    it('<logic:present>', async () => {
+    it('<logic:present name="testBean">', async () => {
         const src = '[<logic:present name="testBean">TRUE</logic:present>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
         let ctx: Context = {};
 
-        assert.equal(render(ctx), '[]');
+        assert.equal(render(ctx), '[]', JSON.stringify(ctx));
 
         ctx.testBean = {fred: "Fred"};
-        assert.equal(render(ctx), '[TRUE]');
+        assert.equal(render(ctx), '[TRUE]', JSON.stringify(ctx));
+    });
+
+    it('<logic:present name="testBean" property="fred">', async () => {
+        const src = '[<logic:present name="testBean" property="fred">TRUE</logic:present>]';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        let ctx: Context = {};
+
+        assert.equal(render(ctx), '[]', JSON.stringify(ctx));
+
+        ctx.testBean = {fred: "Fred"};
+        assert.equal(render(ctx), '[TRUE]', JSON.stringify(ctx));
+
+        ctx.testBean = {stringValue: "StringValue"};
+        assert.equal(render(ctx), '[]', JSON.stringify(ctx));
     });
 });

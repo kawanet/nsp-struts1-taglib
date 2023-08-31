@@ -10,13 +10,20 @@ export class EmptyTag extends ConditionalTagBase<Struts1Logic.EmptyTagAttr> {
     attr: Struts1Logic.EmptyTagAttr;
 
     protected condition() {
-        const value = this.getValue();
+        const value = this.getTarget();
         return value == null || value.length === 0;
     }
 
-    protected getValue(): any {
+    protected getTarget(): any {
+        const {context} = this;
         const {name, property} = this.attr;
 
-        return this.context[name] ?? this.context[property]; // TODO
+        if (name) {
+            if (property) {
+                return context[name]?.[property];
+            } else {
+                return context[name];
+            }
+        }
     }
 }

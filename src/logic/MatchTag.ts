@@ -12,10 +12,11 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
     protected condition(): boolean {
         const {location, value} = this.attr;
 
-        const variable = this.getVariable();
-        if (variable == null) {
+        const target = this.getTarget();
+        if (target == null) {
             throw new Error(`Cannot compare null variable to value ${value}`);
         }
+        const variable = ("string" === typeof target) ? target : String(target);
 
         let matched = false;
         if (location == null) {
@@ -29,13 +30,16 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
         return matched;
     }
 
-    protected getVariable(): string {
+    protected getTarget(): string {
         const {context} = this;
         const {name, property} = this.attr;
 
-        const target: any = context[name] ?? context[property]; // TODO
-        if (target == null) return;
-
-        return ("string" === typeof target) ? target : String(target);
+        if (name) {
+            if (property) {
+                return context[name]?.[property];
+            } else {
+                return context[name];
+            }
+        }
     }
 }

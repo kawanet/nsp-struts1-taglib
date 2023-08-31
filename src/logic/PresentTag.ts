@@ -15,8 +15,15 @@ export class PresentTag extends ConditionalTagBase<Struts1Logic.PresentTagAttr> 
     };
 
     protected getValue(): any {
+        const {context} = this;
         const {name, property} = this.attr;
 
-        return this.context[name] ?? this.context[property]; // TODO
+        if (name) {
+            if (property) {
+                return context[name]?.[property];
+            } else {
+                return context[name];
+            }
+        }
     }
 }

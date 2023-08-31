@@ -12,7 +12,14 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
     protected getLeft(): any {
         const {context} = this;
         const {name, property} = this.attr;
-        return context[name] ?? context[property]; // TODO
+
+        if (name) {
+            if (property) {
+                return context[name]?.[property];
+            } else {
+                return context[name];
+            }
+        }
     }
 
     protected getRight(): any {
