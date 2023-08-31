@@ -10,7 +10,9 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
     }
 
     protected getLeft(): any {
-        return this.attr.value; // TODO
+        const {context} = this;
+        const {name, property} = this.attr;
+        return context[name] ?? context[property]; // TODO
     }
 
     protected getRight(): any {
@@ -24,5 +26,7 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
 }
 
 interface CompareTagAttr {
+    name: string;
+    property: string;
     value: any;
 }
