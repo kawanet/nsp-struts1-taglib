@@ -26,7 +26,7 @@ describe(TITLE, () => {
         const render = nsp.parse(src).toFn<Context>();
 
         const ctx: Context = {};
-        assert.rejects(async () => render(ctx));
+        await assert.rejects(async () => render(ctx));
 
         ctx.bean = {stringArray: ["foo", "bar", "buz"]};
         assert.equal(await render(ctx), '[][3]');

@@ -22,6 +22,6 @@ describe(TITLE, () => {
         const render = nsp.parse(src).toFn<Context>();
 
         // it throws on runtime as not implemented yet
-        assert.rejects(async () => render({})); // TODO
+        await assert.rejects(async () => render({})); // TODO
     });
 });

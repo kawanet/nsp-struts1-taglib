@@ -22,6 +22,6 @@ describe(TITLE, () => {
         const render = nsp.parse(src).toFn<Context>();
 
         // it should throw as not implemented by design
-        assert.rejects(async () => render({}));
+        await assert.rejects(async () => render({}));
     });
 });
