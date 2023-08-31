@@ -19,7 +19,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:match>', async () => {
-        const src = '[<logic:match name="string" value="foo">match</logic:match>]';
+        const src: string = '[<logic:match name="string" value="foo">match</logic:match>]';
         const render = nsp.parse(src).toFn<Context>();
         let ctx: Context;
 
@@ -31,7 +31,7 @@ describe(TITLE, () => {
     });
 
     it('location="${location}"', async () => {
-        const src = '[<logic:match name="string" value="${value}" location="${location}">match</logic:match>]';
+        const src: string = '[<logic:match name="string" value="${value}" location="${location}">match</logic:match>]';
         const render = nsp.parse(src).toFn<Context>();
         let ctx: Context;
 

@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('Strawberry', async () => {
-        const src = '<html:multibox property="fruits" value="Strawberry"/>';
+        const src: string = '<html:multibox property="fruits" value="Strawberry"/>';
 
         const render = nsp.parse(src).toFn<Context>();
 
@@ -31,7 +31,7 @@ describe(TITLE, () => {
     });
 
     it('Apple', async () => {
-        const src = '<html:multibox property="fruits"> Apple </html:multibox>';
+        const src: string = '<html:multibox property="fruits"> Apple </html:multibox>';
 
         const render = nsp.parse(src).toFn<Context>();
 

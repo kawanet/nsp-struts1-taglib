@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:notEmpty>', async () => {
-        const src = '[<logic:notEmpty name="items">TRUE</logic:notEmpty>]';
+        const src: string = '[<logic:notEmpty name="items">TRUE</logic:notEmpty>]';
 
         const render = nsp.parse(src).toFn<Context>();
 

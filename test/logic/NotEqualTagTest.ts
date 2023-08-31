@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:notEqual>', async () => {
-        const src = '[<logic:notEqual name="intValue" value="7">TRUE</logic:notEqual>]';
+        const src: string = '[<logic:notEqual name="intValue" value="7">TRUE</logic:notEqual>]';
 
         const render = nsp.parse(src).toFn<Context>();
 

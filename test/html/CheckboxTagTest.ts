@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:checkbox>', async () => {
-        const src = '[]'; // TODO
+        const src: string = '[]'; // TODO
 
         const render = nsp.parse(src).toFn<Context>();
 

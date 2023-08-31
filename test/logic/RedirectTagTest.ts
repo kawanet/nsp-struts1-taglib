@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:redirect>', async () => {
-        const src = '[<logic:redirect/>]';
+        const src: string = '[<logic:redirect/>]';
 
         const render = nsp.parse(src).toFn<Context>();
 

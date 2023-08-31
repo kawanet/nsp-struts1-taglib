@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:greaterThan>', async () => {
-        const src = '[<logic:greaterThan name="intValue" value="7">TRUE</logic:greaterThan>]';
+        const src: string = '[<logic:greaterThan name="intValue" value="7">TRUE</logic:greaterThan>]';
 
         const render = nsp.parse(src).toFn<Context>();
 

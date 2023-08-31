@@ -22,7 +22,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:notPresent name="testBean">', async () => {
-        const src = '[<logic:notPresent name="testBean">TRUE</logic:notPresent>]';
+        const src: string = '[<logic:notPresent name="testBean">TRUE</logic:notPresent>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
@@ -35,7 +35,7 @@ describe(TITLE, () => {
     });
 
     it('<logic:notPresent name="testBean" property="fred">', async () => {
-        const src = '[<logic:notPresent name="testBean" property="fred">TRUE</logic:notPresent>]';
+        const src: string = '[<logic:notPresent name="testBean" property="fred">TRUE</logic:notPresent>]';
 
         const render = nsp.parse(src).toFn<Context>();
 

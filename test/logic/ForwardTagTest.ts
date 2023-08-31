@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:forward>', async () => {
-        const src = '[<logic:forward/>]';
+        const src: string = '[<logic:forward/>]';
 
         const render = nsp.parse(src).toFn<Context>();
 

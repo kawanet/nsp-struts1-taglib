@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "bean", tag: beanTags});
 
     it('<bean:message>', async () => {
-        const src = '[]'; // TODO
+        const src: string = '[]'; // TODO
 
         const render = nsp.parse(src).toFn<Context>();
 
