@@ -4,6 +4,8 @@ import {StringBuffer} from "../util/StringBuffer.js";
 
 const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => ("object" === typeof v && "number" === typeof v.length);
 
+const isEmpty = (v: any): v is null => (v == null || v === "");
+
 /**
  * <logic:iterate>
  *
@@ -14,12 +16,11 @@ export class IterateTag extends BodyTagSupport<Struts1Logic.IterateTagAttr> {
 
     async render() {
         const {context} = this;
-        const {id, indexId, offset} = this.attr;
+        const {id, indexId, offset, length} = this.attr;
 
         const array: any[] = this.getCollection();
         const start = +offset || 0;
-        const end = array?.length;
-        if (!end) return;
+        const end = (!isEmpty(length) ? start + (+length || 0) : array?.length);
 
         const buffer = new StringBuffer();
 

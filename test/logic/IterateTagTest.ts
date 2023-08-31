@@ -6,6 +6,8 @@ const TITLE = "test/logic/IterateTagTest.ts";
 
 interface Context {
     bean?: Bean;
+    offset?: number;
+    length?: number;
 }
 
 interface Bean {
@@ -33,5 +35,24 @@ describe(TITLE, () => {
 
         ctx.bean = {stringArray: ["foo", "bar", "buz"]};
         assert.equal(await render(ctx), '[[0=foo][1=bar][2=buz]]', JSON.stringify(ctx));
+    });
+
+    it('offset="${offset}" length="${length}"', async () => {
+        const src: string = '[<logic:iterate id="element" name="bean" property="stringArray" indexId="index" offset="${offset}" length="${length}">[${index}=${element}]</logic:iterate>]';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        const bean: Bean = {stringArray: ["foo", "bar", "buz", "qux"]};
+        let ctx: Context = {bean};
+        assert.equal(await render(ctx), '[[0=foo][1=bar][2=buz][3=qux]]', JSON.stringify(ctx));
+
+        ctx = {bean, offset: 2};
+        assert.equal(await render(ctx), '[[2=buz][3=qux]]', JSON.stringify(ctx));
+
+        ctx = {bean, length: 2};
+        assert.equal(await render(ctx), '[[0=foo][1=bar]]', JSON.stringify(ctx));
+
+        ctx = {bean, offset: 1, length: 2};
+        assert.equal(await render(ctx), '[[1=bar][2=buz]]', JSON.stringify(ctx));
     });
 });
