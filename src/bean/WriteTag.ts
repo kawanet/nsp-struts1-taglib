@@ -1,5 +1,12 @@
 import type {Struts1Bean} from "../../index.js";
 import {TagSupport} from "../util/TagSupport.js";
+import {TagUtils} from "../util/TagUtils.js";
+
+interface Format {
+    format(value: any): string;
+}
+
+const isFalse = (v: any): v is false => (v === false || v === "false");
 
 /**
  * <bean:write>
@@ -13,8 +20,53 @@ import {TagSupport} from "../util/TagSupport.js";
 export class WriteTag extends TagSupport<Struts1Bean.WriteTagAttr> {
     protected attr: Struts1Bean.WriteTagAttr;
 
-    render() {
-        throw new Error("Not implemented: <bean:write>");
-        return null as string; // TODO
+    render(): string {
+        const {context} = this;
+        const {ignore, name, property, scope, filter} = this.attr;
+
+        // Look up the requested bean (if necessary)
+        if (ignore) {
+            if (TagUtils.getInstance().lookup(context, name, scope) == null) {
+                return; // Nothing to output
+            }
+        }
+
+        // Look up the requested property value
+        const value = TagUtils.getInstance().lookup(context, name, property, scope);
+
+        if (value == null) {
+            return; // Nothing to output
+        }
+
+        // Convert value to the String with some formatting
+        const output = this.formatValue(value);
+
+        // Print this property value to our output writer, suitably filtered
+        if (!isFalse(filter)) {
+            return TagUtils.getInstance().filter(output);
+        } else {
+            return output;
+        }
     };
+
+    protected formatValue(valueToFormat: any): string {
+        let format: Format;
+        const value = valueToFormat;
+
+        if ("string" === typeof value) {
+            return value;
+        } else {
+            if ("number" === typeof value) {
+                format = {format: JSON.stringify}; // TODO
+            } else if (value instanceof Date) {
+                format = {format: JSON.stringify}; // TODO
+            }
+        }
+
+        if (format) {
+            return format.format(value);
+        } else {
+            return String(value);
+        }
+    }
 }
