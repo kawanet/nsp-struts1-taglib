@@ -1,4 +1,5 @@
 import type {Struts1Logic} from "../../index.js";
+import {TagUtils} from "../util/TagUtils.js";
 import {ConditionalTagBase} from "./ConditionalTagBase.js";
 
 /**
@@ -10,12 +11,14 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
     protected attr: Struts1Logic.MatchTagAttr;
 
     protected condition(): boolean {
-        const {location, value} = this.attr;
+        const {context} = this;
+        const {name, property, location, value} = this.attr;
 
-        const target = this.getTarget();
+        const target = TagUtils.getInstance().lookup(context, name, property);
         if (target == null) {
             throw new Error(`Cannot compare null variable to value ${value}`);
         }
+
         const variable = ("string" === typeof target) ? target : String(target);
 
         let matched = false;
@@ -28,18 +31,5 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
         }
 
         return matched;
-    }
-
-    protected getTarget(): string {
-        const {context} = this;
-        const {name, property} = this.attr;
-
-        if (name) {
-            if (property) {
-                return context[name]?.[property];
-            } else {
-                return context[name];
-            }
-        }
     }
 }

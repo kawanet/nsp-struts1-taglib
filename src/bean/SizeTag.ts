@@ -1,5 +1,6 @@
 import type {Struts1Bean} from "../../index.js";
 import {TagSupport} from "../util/TagSupport.js";
+import {TagUtils} from "../util/TagUtils.js";
 
 const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => ("object" === typeof v && "number" === typeof v.length);
 
@@ -24,35 +25,18 @@ export class SizeTag extends TagSupport<Struts1Bean.SizeTagAttr> {
         return null;
     };
 
-    protected getCollection(): any[] {
+    protected getCollection(): ArrayLike<any> {
+        const {context} = this;
+        const {name, property} = this.attr;
+
         let collection = this.attr.collection;
-        const {name} = this.attr;
 
         if (!collection) {
-            collection = this.getTarget();
-        }
-
-        if (Array.isArray(collection)) {
-            return collection;
+            collection = TagUtils.getInstance().lookup(context, name, property);
         }
 
         if (isArrayLike(collection)) {
             return collection;
-        }
-
-        throw new Error(`No valid collection specified for size tag: ${name}`);
-    }
-
-    protected getTarget(): any[] {
-        const {context} = this;
-        const {name, property} = this.attr;
-
-        if (name) {
-            if (property) {
-                return context[name]?.[property];
-            } else {
-                return context[name];
-            }
         }
 
         throw new Error(`No valid collection specified for size tag: ${name}`);
