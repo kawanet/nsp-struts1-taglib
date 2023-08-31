@@ -1,5 +1,5 @@
 import type {Struts1Html} from "../../index.js";
-import {BaseHandlerTag} from "../util/BaseHandlerTag.js";
+import {BaseHandlerTag} from "./BaseHandlerTag.js";
 
 /**
  * <html:messages>

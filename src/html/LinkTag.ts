@@ -1,6 +1,6 @@
 import type {Struts1Html} from "../../index.js";
-import {BaseHandlerTag} from "../util/BaseHandlerTag.js";
 import {StringBuffer} from "../util/StringBuffer.js";
+import {BaseHandlerTag} from "./BaseHandlerTag.js";
 
 /**
  * <html:link>
