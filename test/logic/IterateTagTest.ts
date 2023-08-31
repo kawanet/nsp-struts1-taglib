@@ -5,7 +5,11 @@ import {logicTags} from "../../index.js";
 const TITLE = "test/logic/IterateTagTest.ts";
 
 interface Context {
-    //
+    bean?: Bean;
+}
+
+interface Bean {
+    stringArray?: string[];
 }
 
 /**
@@ -17,10 +21,17 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "logic", tag: logicTags});
 
     it('<logic:iterate>', async () => {
-        const src = '[]'; // TODO
+        const src: string = '[<logic:iterate id="element" name="bean" property="stringArray" indexId="index">[${index}=${element}]</logic:iterate>]';
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        let ctx: Context = {};
+        assert.rejects(async () => render(ctx));
+
+        ctx.bean = {stringArray: []};
+        assert.equal(await render(ctx), '[]', JSON.stringify(ctx));
+
+        ctx.bean = {stringArray: ["foo", "bar", "buz"]};
+        assert.equal(await render(ctx), '[[0=foo][1=bar][2=buz]]', JSON.stringify(ctx));
     });
 });

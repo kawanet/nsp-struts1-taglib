@@ -397,7 +397,7 @@ declare namespace Struts1Logic {
          * <p>A runtime expression that evaluates to a collection (conforming to
          * the requirements listed above) to be iterated over.</p>
          */
-        collection?: string;
+        collection?: any[];
 
         /**
          * <p>The name of a page scope JSP bean that will contain the current
