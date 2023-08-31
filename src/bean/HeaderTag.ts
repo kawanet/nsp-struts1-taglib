@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Bean} from "../../index.js";
+import {TagSupport} from "../util/TagSupport.js";
 
 /**
  * <bean:header>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/bean/HeaderTag.java
  */
-export const headerTag: NSP.TagFn<Struts1Bean.HeaderTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
+    protected attr: Struts1Bean.HeaderTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <bean:header>");
+        return null as string; // TODO
     };
-};
+}

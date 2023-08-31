@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Bean} from "../../index.js";
+import {TagSupport} from "../util/TagSupport.js";
 
 /**
  * <bean:resource>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/bean/ResourceTag.java
  */
-export const resourceTag: NSP.TagFn<Struts1Bean.ResourceTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class ResourceTag extends TagSupport<Struts1Bean.ResourceTagAttr> {
+    protected attr: Struts1Bean.ResourceTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <bean:resource>");
+        return null as string; // TODO
     };
-};
+}

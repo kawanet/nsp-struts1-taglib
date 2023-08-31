@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Bean} from "../../index.js";
+import {TagSupport} from "../util/TagSupport.js";
 
 /**
  * <bean:cookie>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/bean/CookieTag.java
  */
-export const cookieTag: NSP.TagFn<Struts1Bean.CookieTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class CookieTag extends TagSupport<Struts1Bean.CookieTagAttr> {
+    protected attr: Struts1Bean.CookieTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <bean:cookie>");
+        return null as string; // TODO
     };
-};
+}

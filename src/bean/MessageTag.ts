@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Bean} from "../../index.js";
+import {TagSupport} from "../util/TagSupport.js";
 
 /**
  * <bean:message>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/bean/MessageTag.java
  */
-export const messageTag: NSP.TagFn<Struts1Bean.MessageTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class MessageTag extends TagSupport<Struts1Bean.MessageTagAttr> {
+    protected attr: Struts1Bean.MessageTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <bean:message>");
+        return null as string; // TODO
     };
-};
+}

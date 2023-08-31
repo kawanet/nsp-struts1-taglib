@@ -26,17 +26,17 @@ export const beanTags: Struts1Bean.beanTags;
  */
 declare namespace Struts1Bean {
     type beanTags = {
-        cookie: NSP.TagFn<CookieTagAttr>;
-        define: NSP.TagFn<DefineTagAttr>;
-        header: NSP.TagFn<HeaderTagAttr>;
-        include: NSP.TagFn<IncludeTagAttr>;
-        message: NSP.TagFn<MessageTagAttr>;
-        page: NSP.TagFn<PageTagAttr>;
-        parameter: NSP.TagFn<ParameterTagAttr>;
-        resource: NSP.TagFn<ResourceTagAttr>;
-        size: NSP.TagFn<SizeTagAttr>;
-        struts: NSP.TagFn<StrutsTagAttr>;
-        write: NSP.TagFn<WriteTagAttr>;
+        cookie: NSP.TagCon<CookieTagAttr>;
+        define: NSP.TagCon<DefineTagAttr>;
+        header: NSP.TagCon<HeaderTagAttr>;
+        include: NSP.TagCon<IncludeTagAttr>;
+        message: NSP.TagCon<MessageTagAttr>;
+        page: NSP.TagCon<PageTagAttr>;
+        parameter: NSP.TagCon<ParameterTagAttr>;
+        resource: NSP.TagCon<ResourceTagAttr>;
+        size: NSP.TagCon<SizeTagAttr>;
+        struts: NSP.TagCon<StrutsTagAttr>;
+        write: NSP.TagCon<WriteTagAttr>;
     };
 
     /**

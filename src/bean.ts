@@ -1,28 +1,28 @@
 import type {Struts1Bean} from "../types/struts-bean.js";
-import {cookieTag} from "./bean/CookieTag.js";
-import {defineTag} from "./bean/DefineTag.js";
-import {headerTag} from "./bean/HeaderTag.js";
-import {includeTag} from "./bean/IncludeTag.js";
-import {messageTag} from "./bean/MessageTag.js";
-import {pageTag} from "./bean/PageTag.js";
-import {parameterTag} from "./bean/ParameterTag.js";
-import {resourceTag} from "./bean/ResourceTag.js";
-import {sizeTag} from "./bean/SizeTag.js";
-import {strutsTag} from "./bean/StrutsTag.js";
-import {writeTag} from "./bean/WriteTag.js";
+import {CookieTag} from "./bean/CookieTag.js";
+import {DefineTag} from "./bean/DefineTag.js";
+import {HeaderTag} from "./bean/HeaderTag.js";
+import {IncludeTag} from "./bean/IncludeTag.js";
+import {MessageTag} from "./bean/MessageTag.js";
+import {PageTag} from "./bean/PageTag.js";
+import {ParameterTag} from "./bean/ParameterTag.js";
+import {ResourceTag} from "./bean/ResourceTag.js";
+import {SizeTag} from "./bean/SizeTag.js";
+import {StrutsTag} from "./bean/StrutsTag.js";
+import {WriteTag} from "./bean/WriteTag.js";
 
 const beanTags: Struts1Bean.beanTags = {
-    cookie: cookieTag,
-    define: defineTag,
-    header: headerTag,
-    include: includeTag,
-    message: messageTag,
-    page: pageTag,
-    parameter: parameterTag,
-    resource: resourceTag,
-    size: sizeTag,
-    struts: strutsTag,
-    write: writeTag,
+    cookie: CookieTag,
+    define: DefineTag,
+    header: HeaderTag,
+    include: IncludeTag,
+    message: MessageTag,
+    page: PageTag,
+    parameter: ParameterTag,
+    resource: ResourceTag,
+    size: SizeTag,
+    struts: StrutsTag,
+    write: WriteTag,
 };
 
 export {Struts1Bean, beanTags};
