@@ -12,9 +12,9 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
 
     protected condition(): boolean {
         const {context} = this;
-        const {name, property, location, value} = this.attr;
+        const {name, property, scope, location, value} = this.attr;
 
-        const target = TagUtils.getInstance().lookup(context, name, property);
+        const target = TagUtils.getInstance().lookup(context, name, property, scope);
         if (target == null) {
             throw new Error(`Cannot compare null variable to value ${value}`);
         }

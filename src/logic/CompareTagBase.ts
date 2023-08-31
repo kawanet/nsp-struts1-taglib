@@ -6,12 +6,12 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
 
     protected condition(): boolean {
         const {context} = this;
-        const {name, property, value} = this.attr;
+        const {name, property, value, scope} = this.attr;
 
         let variable: any;
 
         if (name) {
-            variable = TagUtils.getInstance().lookup(context, name, property);
+            variable = TagUtils.getInstance().lookup(context, name, property, scope);
         }
 
         if (variable == null) {
@@ -31,4 +31,5 @@ interface CompareTagAttr {
     name: string;
     property: string;
     value: any;
+    scope?: string;
 }

@@ -36,12 +36,12 @@ export class IterateTag extends BodyTagSupport<Struts1Logic.IterateTagAttr> {
 
     protected getCollection(): ArrayLike<any> {
         const {context} = this;
-        const {name, property} = this.attr;
+        const {name, property, scope} = this.attr;
 
         let collection = this.attr.collection;
 
         if (!collection) {
-            collection = TagUtils.getInstance().lookup(context, name, property);
+            collection = TagUtils.getInstance().lookup(context, name, property, scope);
         }
 
         if (isArrayLike(collection)) {

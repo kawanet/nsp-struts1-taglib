@@ -21,8 +21,19 @@ export class TagUtils {
         return ResponseUtils.filter(value);
     }
 
-    lookup<T>(context: any, name: string, property: string): T {
+    lookup<T>(context: any, name: string, scope: string): T;
+    lookup<T>(context: any, name: string, property: string, scope: string): T;
+
+    lookup<T>(context: any, name: string, property: string, scope?: string): T {
         let bean = context[name];
+
+        if (arguments.length === 3) {
+            scope = property;
+
+            scope; // unused
+
+            property = null;
+        }
 
         if (!property) {
             return bean;

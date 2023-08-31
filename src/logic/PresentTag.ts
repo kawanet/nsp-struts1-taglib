@@ -28,12 +28,12 @@ export class PresentTag extends ConditionalTagBase<Struts1Logic.PresentTagAttr> 
      */
     protected isBeanPresent(): boolean {
         const {context} = this;
-        const {name, property} = this.attr;
+        const {name, property, scope} = this.attr;
 
         let value: any;
 
         try {
-            value = TagUtils.getInstance().lookup(context, name, property);
+            value = TagUtils.getInstance().lookup(context, name, property, scope);
         } catch (e) {
             value = null;
         }
