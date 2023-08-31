@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {BaseFieldTag} from "./BaseFieldTag.js";
 
 /**
  * <html:text>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/TextTag.java
  */
-export const textTag: NSP.TagFn<Struts1Html.TextTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class TextTag extends BaseFieldTag<Struts1Html.TextTagAttr> {
+    protected attr: Struts1Html.TextTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:text>");
+        return null as string; // TODO
     };
-};
+}

@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {SubmitTag} from "./SubmitTag.js";
 
 /**
  * <html:button>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/ButtonTag.java
  */
-export const buttonTag: NSP.TagFn<Struts1Html.ButtonTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class ButtonTag extends SubmitTag {
+    protected attr: Struts1Html.ButtonTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:button>");
+        return null as string; // TODO
     };
-};
+}

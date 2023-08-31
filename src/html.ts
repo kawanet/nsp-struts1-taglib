@@ -1,66 +1,66 @@
 import type {Struts1Html} from "../types/struts-html.js";
-import {baseTag} from "./html/BaseTag.js";
-import {buttonTag} from "./html/ButtonTag.js";
-import {cancelTag} from "./html/CancelTag.js";
-import {checkboxTag} from "./html/CheckboxTag.js";
-import {errorsTag} from "./html/ErrorsTag.js";
-import {fileTag} from "./html/FileTag.js";
-import {formTag} from "./html/FormTag.js";
-import {frameTag} from "./html/FrameTag.js";
-import {hiddenTag} from "./html/HiddenTag.js";
-import {htmlTag} from "./html/HtmlTag.js";
-import {imageTag} from "./html/ImageTag.js";
-import {imgTag} from "./html/ImgTag.js";
-import {javascriptTag} from "./html/JavascriptTag.js";
-import {labelTag} from "./html/LabelTag.js";
+import {BaseTag} from "./html/BaseTag.js";
+import {ButtonTag} from "./html/ButtonTag.js";
+import {CancelTag} from "./html/CancelTag.js";
+import {CheckboxTag} from "./html/CheckboxTag.js";
+import {ErrorsTag} from "./html/ErrorsTag.js";
+import {FileTag} from "./html/FileTag.js";
+import {FormTag} from "./html/FormTag.js";
+import {FrameTag} from "./html/FrameTag.js";
+import {HiddenTag} from "./html/HiddenTag.js";
+import {HtmlTag} from "./html/HtmlTag.js";
+import {ImageTag} from "./html/ImageTag.js";
+import {ImgTag} from "./html/ImgTag.js";
+import {JavascriptValidatorTag} from "./html/JavascriptValidatorTag.js";
+import {LabelTag} from "./html/LabelTag.js";
 import {LinkTag} from "./html/LinkTag.js";
-import {messagesTag} from "./html/MessagesTag.js";
+import {MessagesTag} from "./html/MessagesTag.js";
 import {MultiboxTag} from "./html/MultiboxTag.js";
-import {optionsCollectionTag} from "./html/OptionsCollectionTag.js";
-import {optionsTag} from "./html/OptionsTag.js";
-import {optionTag} from "./html/OptionTag.js";
-import {paramTag} from "./html/ParamTag.js";
-import {passwordTag} from "./html/PasswordTag.js";
-import {radioTag} from "./html/RadioTag.js";
-import {resetTag} from "./html/ResetTag.js";
-import {rewriteTag} from "./html/RewriteTag.js";
-import {selectTag} from "./html/SelectTag.js";
-import {submitTag} from "./html/SubmitTag.js";
-import {textareaTag} from "./html/TextareaTag.js";
-import {textTag} from "./html/TextTag.js";
-import {xhtmlTag} from "./html/XhtmlTag.js";
+import {OptionsCollectionTag} from "./html/OptionsCollectionTag.js";
+import {OptionsTag} from "./html/OptionsTag.js";
+import {OptionTag} from "./html/OptionTag.js";
+import {ParamTag} from "./html/ParamTag.js";
+import {PasswordTag} from "./html/PasswordTag.js";
+import {RadioTag} from "./html/RadioTag.js";
+import {ResetTag} from "./html/ResetTag.js";
+import {RewriteTag} from "./html/RewriteTag.js";
+import {SelectTag} from "./html/SelectTag.js";
+import {SubmitTag} from "./html/SubmitTag.js";
+import {TextareaTag} from "./html/TextareaTag.js";
+import {TextTag} from "./html/TextTag.js";
+import {XhtmlTag} from "./html/XhtmlTag.js";
 
 const htmlTags: Struts1Html.htmlTags = {
-    base: baseTag,
-    button: buttonTag,
-    cancel: cancelTag,
-    checkbox: checkboxTag,
-    errors: errorsTag,
-    file: fileTag,
-    form: formTag,
-    frame: frameTag,
-    hidden: hiddenTag,
-    html: htmlTag,
-    image: imageTag,
-    img: imgTag,
-    javascript: javascriptTag,
-    label: labelTag,
+    base: BaseTag,
+    button: ButtonTag,
+    cancel: CancelTag,
+    checkbox: CheckboxTag,
+    errors: ErrorsTag,
+    file: FileTag,
+    form: FormTag,
+    frame: FrameTag,
+    hidden: HiddenTag,
+    html: HtmlTag,
+    image: ImageTag,
+    img: ImgTag,
+    javascript: JavascriptValidatorTag,
+    label: LabelTag,
     link: LinkTag,
-    param: paramTag,
-    messages: messagesTag,
+    param: ParamTag,
+    messages: MessagesTag,
     multibox: MultiboxTag,
-    option: optionTag,
-    options: optionsTag,
-    optionsCollection: optionsCollectionTag,
-    password: passwordTag,
-    radio: radioTag,
-    reset: resetTag,
-    rewrite: rewriteTag,
-    select: selectTag,
-    submit: submitTag,
-    text: textTag,
-    textarea: textareaTag,
-    xhtml: xhtmlTag,
+    option: OptionTag,
+    options: OptionsTag,
+    optionsCollection: OptionsCollectionTag,
+    password: PasswordTag,
+    radio: RadioTag,
+    reset: ResetTag,
+    rewrite: RewriteTag,
+    select: SelectTag,
+    submit: SubmitTag,
+    text: TextTag,
+    textarea: TextareaTag,
+    xhtml: XhtmlTag,
 };
 
 export {Struts1Html, htmlTags};

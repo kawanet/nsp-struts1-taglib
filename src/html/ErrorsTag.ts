@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {TagSupport} from "../util/TagSupport.js";
 
 /**
  * <html:errors>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/ErrorsTag.java
  */
-export const errorsTag: NSP.TagFn<Struts1Html.ErrorsTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class ErrorsTag extends TagSupport<Struts1Html.ErrorsTagAttr> {
+    protected attr: Struts1Html.ErrorsTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:errors>");
+        return null as string; // TODO
     };
-};
+}

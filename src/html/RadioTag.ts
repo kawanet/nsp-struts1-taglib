@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {BaseHandlerTag} from "../util/BaseHandlerTag.js";
 
 /**
  * <html:radio>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/RadioTag.java
  */
-export const radioTag: NSP.TagFn<Struts1Html.RadioTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class RadioTag extends BaseHandlerTag<Struts1Html.RadioTagAttr> {
+    protected attr: Struts1Html.RadioTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:radio>");
+        return null as string; // TODO
     };
-};
+}

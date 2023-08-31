@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {BaseHandlerTag} from "../util/BaseHandlerTag.js";
 
 /**
  * <html:submit>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/SubmitTag.java
  */
-export const submitTag: NSP.TagFn<Struts1Html.SubmitTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class SubmitTag extends BaseHandlerTag<Struts1Html.SubmitTagAttr> {
+    protected attr: Struts1Html.SubmitTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:submit>");
+        return null as string; // TODO
     };
-};
+}

@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {BaseInputTag} from "./BaseInputTag.js";
 
 /**
  * <html:textarea>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/TextareaTag.java
  */
-export const textareaTag: NSP.TagFn<Struts1Html.TextareaTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class TextareaTag extends BaseInputTag<Struts1Html.TextareaTagAttr> {
+    protected attr: Struts1Html.TextareaTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:textarea>");
+        return null as string; // TODO
     };
-};
+}

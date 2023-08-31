@@ -1,8 +1,8 @@
 import type {BaseHandlerTagAttr} from "./BaseHandlerTagAttr.js";
+import {BodyTagSupport} from "./BodyTagSupport.js";
 import {StringBuffer} from "./StringBuffer.js";
-import {TagSupport} from "./TagSupport.js";
 
-export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> extends TagSupport<A> {
+export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> extends BodyTagSupport<A> {
     protected attr: A;
 
     /**

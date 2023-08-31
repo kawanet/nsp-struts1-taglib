@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {TagSupport} from "../util/TagSupport.js";
 
 /**
  * <html:html>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/HtmlTag.java
  */
-export const htmlTag: NSP.TagFn<Struts1Html.HtmlTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class HtmlTag extends TagSupport<Struts1Html.HtmlTagAttr> {
+    protected attr: Struts1Html.HtmlTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:html>");
+        return null as string; // TODO
     };
-};
+}

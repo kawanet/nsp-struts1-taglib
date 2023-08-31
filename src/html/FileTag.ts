@@ -1,11 +1,16 @@
-import type {NSP} from "nsp-server-pages";
 import type {Struts1Html} from "../../index.js";
+import {BaseFieldTag} from "./BaseFieldTag.js";
 
 /**
  * <html:file>
+ *
+ * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/html/FileTag.java
  */
-export const fileTag: NSP.TagFn<Struts1Html.FileTagAttr> = (tag) => {
-    return (_) => {
-        throw new Error(`Not implemented: <${tag.name}>`);
+export class FileTag extends BaseFieldTag<Struts1Html.FileTagAttr> {
+    protected attr: Struts1Html.FileTagAttr;
+
+    render() {
+        throw new Error("Not implemented: <html:file>");
+        return null as string; // TODO
     };
-};
+}
