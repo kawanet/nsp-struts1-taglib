@@ -9,8 +9,14 @@ import {ConditionalTagBase} from "./ConditionalTagBase.js";
 export class PresentTag extends ConditionalTagBase<Struts1Logic.PresentTagAttr> {
     protected attr: Struts1Logic.PresentTagAttr;
 
-    render() {
-        throw new Error("Not implemented: <logic:present>");
-        return null as string; // TODO
+    protected condition() {
+        const value = this.getValue();
+        return value != null;
     };
+
+    protected getValue(): any {
+        const {name, property} = this.attr;
+
+        return this.context[name] ?? this.context[property]; // TODO
+    }
 }

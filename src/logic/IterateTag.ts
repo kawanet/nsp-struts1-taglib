@@ -1,5 +1,6 @@
 import type {Struts1Logic} from "../../index.js";
 import {BodyTagSupport} from "../util/BodyTagSupport.js";
+import {StringBuffer} from "../util/StringBuffer.js";
 
 /**
  * <logic:iterate>
@@ -9,8 +10,23 @@ import {BodyTagSupport} from "../util/BodyTagSupport.js";
 export class IterateTag extends BodyTagSupport<Struts1Logic.IterateTagAttr> {
     protected attr: Struts1Logic.IterateTagAttr;
 
-    render() {
-        throw new Error("Not implemented: <logic:iterate>");
-        return null as string; // TODO
+    async render() {
+        const {context} = this;
+        const {collection, name, property, id, indexId, offset} = this.attr;
+
+        const array: any[] = collection ?? context[name] ?? context[property];
+        const start = +offset || 0;
+        const end = array?.length;
+        if (!end) return;
+
+        const buffer = new StringBuffer();
+
+        for (let i = start; i < end; i++) {
+            if (indexId) context[indexId] = i;
+            if (id) context[id] = array[i];
+            buffer.append(await this.getBody());
+        }
+
+        return buffer.toString();
     };
 }

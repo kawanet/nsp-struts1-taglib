@@ -9,8 +9,8 @@ import {ConditionalTagBase} from "./ConditionalTagBase.js";
 export class MessagesPresentTag extends ConditionalTagBase<Struts1Logic.MessagesPresentTagAttr> {
     protected attr: Struts1Logic.MessagesPresentTagAttr;
 
-    render() {
+    protected condition(): boolean {
         throw new Error("Not implemented: <logic:messagesPresent>");
-        return null as string; // TODO
+        return null as boolean; // TODO
     };
 }

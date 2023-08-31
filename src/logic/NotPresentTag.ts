@@ -9,8 +9,7 @@ import {PresentTag} from "./PresentTag.js";
 export class NotPresentTag extends PresentTag {
     protected attr: Struts1Logic.NotPresentTagAttr;
 
-    render() {
-        throw new Error("Not implemented: <logic:notPresent>");
-        return null as string; // TODO
-    };
+    protected condition(): boolean {
+        return !super.condition();
+    }
 }
