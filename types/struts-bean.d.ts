@@ -570,7 +570,7 @@ declare namespace Struts1Bean {
          * <p>A runtime expression that evaluates to an array, a Collection, or
          * a Map.</p>
          */
-        collection?: string;
+        collection?: any[];
 
         /**
          * <p>The name of a page scope JSP bean, of type
