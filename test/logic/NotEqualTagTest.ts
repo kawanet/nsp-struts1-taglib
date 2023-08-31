@@ -21,16 +21,15 @@ describe(TITLE, () => {
 
         const render = nsp.parse(src).toFn<Context>();
 
-        let ctx: Context = {};
-        assert.equal(render(ctx), '[TRUE]');
+        let ctx: Context;
 
-        ctx.intValue = 6;
+        ctx = {intValue: 6};
         assert.equal(render(ctx), '[TRUE]', JSON.stringify(ctx));
 
-        ctx.intValue = 7;
+        ctx = {intValue: 7};
         assert.equal(render(ctx), '[]', JSON.stringify(ctx));
 
-        ctx.intValue = 8;
+        ctx = {intValue: 8};
         assert.equal(render(ctx), '[TRUE]', JSON.stringify(ctx));
     });
 });

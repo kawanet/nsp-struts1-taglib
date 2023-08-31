@@ -1,7 +1,5 @@
 import {ResponseUtils} from "./ResponseUtils.js";
 
-const isEmpty = (v: any): v is null => (v == null || v === "");
-
 export class TagUtils {
     static instance = new TagUtils();
 
@@ -25,12 +23,12 @@ export class TagUtils {
     lookup<T>(context: any, name: string, property: string): T {
         let bean = context[name];
 
-        if (bean == null) {
-            throw new Error(`Cannot find bean: ${name}`);
+        if (!property) {
+            return bean;
         }
 
-        if (isEmpty(property)) {
-            return bean;
+        if (bean == null) {
+            throw new Error(`Cannot find bean: ${name}`);
         }
 
         const array = String(property).split(/\.|\[(\d+)]/);

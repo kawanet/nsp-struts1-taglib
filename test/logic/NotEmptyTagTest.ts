@@ -23,9 +23,8 @@ describe(TITLE, () => {
 
         let ctx: Context;
 
-        // Cannot find bean: items
         ctx = {};
-        await assert.rejects(async () => render(ctx));
+        assert.equal(render(ctx), '[]');
 
         ctx = {items: []};
         assert.equal(render(ctx), '[]');
