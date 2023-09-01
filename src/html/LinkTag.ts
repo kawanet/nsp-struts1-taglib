@@ -18,7 +18,7 @@ export class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
         const results = new StringBuffer();
         results.append("<a");
         results.attr("name", attr.name);
-        results.attr("href", this.calculateURL(attr));
+        results.attr("href", this.calculateURL());
         results.attr("target", attr.target);
         results.attr("accesskey", attr.accesskey);
         results.attr("tabindex", attr.tabindex);
@@ -34,11 +34,11 @@ export class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
         return results.toString();
     }
 
-    calculateURL(attr: Struts1Html.LinkTagAttr) {
-        if (attr.action) {
-            throw new Error(`Not supported: action="${attr.action}"`);
-        }
+    calculateURL() {
+        const {href} = this.attr;
 
-        return attr.page;
+        // TODO
+
+        return href;
     }
 }

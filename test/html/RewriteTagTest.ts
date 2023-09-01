@@ -17,10 +17,12 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:rewrite>', async () => {
-        const src: string = '[]'; // TODO
+        const src: string = `<html:rewrite href="/foo/"/>`;
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        const ctx: Context = {};
+
+        assert.equal(render(ctx), '/foo/');
     });
 });

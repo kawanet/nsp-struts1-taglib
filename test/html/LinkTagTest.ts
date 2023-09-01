@@ -17,7 +17,7 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:link>', async () => {
-        const src: string = '<html:link page="/foo/" styleClass="bar">FOO</html:link>';
+        const src: string = '<html:link href="/foo/" styleClass="bar">FOO</html:link>';
 
         const render = nsp.parse(src).toFn<Context>();
 

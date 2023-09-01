@@ -10,7 +10,6 @@ export class RewriteTag extends LinkTag {
     protected attr: Struts1Html.RewriteTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:rewrite>");
-        return null as string; // TODO
+        return this.calculateURL();
     };
 }
