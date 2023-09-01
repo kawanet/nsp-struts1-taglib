@@ -76,7 +76,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     }
 
     /**
-     * Prepares the mouse event handlers, appending them to the the given
+     * Prepares the mouse event handlers, appending them to the given
      * StringBuffer.
      */
     protected prepareMouseEvents(handlers: StringBuffer) {
@@ -92,7 +92,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     }
 
     /**
-     * Prepares the keyboard event handlers, appending them to the the given
+     * Prepares the keyboard event handlers, appending them to the given
      * StringBuffer.
      */
     protected prepareKeyEvents(handlers: StringBuffer) {
@@ -104,7 +104,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     }
 
     /**
-     * Prepares the text event handlers, appending them to the the given
+     * Prepares the text event handlers, appending them to the given
      * StringBuffer.
      */
     protected prepareTextEvents(handlers: StringBuffer) {
@@ -115,7 +115,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     }
 
     /**
-     * Prepares the focus event handlers, appending them to the the given
+     * Prepares the focus event handlers, appending them to the given
      * StringBuffer.
      */
     protected prepareFocusEvents(handlers: StringBuffer) {
@@ -138,7 +138,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     }
 
     /**
-     * Prepares the internationalization attribtes, appending them to the the given
+     * Prepares the internationalization attribtes, appending them to the given
      * StringBuffer.
      */
     protected prepareInternationalization(handlers: StringBuffer) {
@@ -155,7 +155,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     }
 
     /**
-     * Prepares an attribute if the value is not null, appending it to the the
+     * Prepares an attribute if the value is not null, appending it to the
      * given StringBuffer.
      */
     protected prepareAttribute(handlers: StringBuffer, name: string, value: any) {
