@@ -14,5 +14,5 @@ export class ParameterTag extends TagSupport<Struts1Bean.ParameterTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:parameter>"); // TODO
-    };
+    }
 }

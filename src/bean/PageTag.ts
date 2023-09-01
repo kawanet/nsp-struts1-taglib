@@ -14,5 +14,5 @@ export class PageTag extends TagSupport<Struts1Bean.PageTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:page>"); // TODO
-    };
+    }
 }

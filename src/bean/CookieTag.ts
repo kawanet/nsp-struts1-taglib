@@ -14,5 +14,5 @@ export class CookieTag extends TagSupport<Struts1Bean.CookieTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:cookie>"); // TODO
-    };
+    }
 }

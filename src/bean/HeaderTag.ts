@@ -14,5 +14,5 @@ export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:header>"); // TODO
-    };
+    }
 }

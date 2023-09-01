@@ -21,7 +21,7 @@ export class SizeTag extends TagSupport<Struts1Bean.SizeTagAttr> {
         const collection = this.getCollection();
 
         this.context[id] = collection?.length;
-    };
+    }
 
     protected getCollection(): ArrayLike<any> {
         const {context} = this;

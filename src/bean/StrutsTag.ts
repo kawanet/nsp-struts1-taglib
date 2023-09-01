@@ -14,5 +14,5 @@ export class StrutsTag extends TagSupport<Struts1Bean.StrutsTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:struts>"); // TODO
-    };
+    }
 }

@@ -47,7 +47,7 @@ export class WriteTag extends TagSupport<Struts1Bean.WriteTagAttr> {
         } else {
             return output;
         }
-    };
+    }
 
     protected formatValue(valueToFormat: any): string {
         let format: Format;

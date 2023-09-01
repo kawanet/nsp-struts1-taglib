@@ -11,5 +11,5 @@ export class IncludeTag extends TagSupport<Struts1Bean.IncludeTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:include>"); // TODO
-    };
+    }
 }
