@@ -21,6 +21,8 @@ describe(TITLE, () => {
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '[]');
+        const ctx: Context = {};
+
+        assert.equal(render(ctx), '[]');
     });
 });

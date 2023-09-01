@@ -21,6 +21,8 @@ describe(TITLE, () => {
 
         const render = nsp.parse(src).toFn<Context>();
 
-        assert.equal(render({}), '<html>BODY</html>');
+        const ctx: Context = {};
+
+        assert.equal(render(ctx), '<html>BODY</html>');
     });
 });
