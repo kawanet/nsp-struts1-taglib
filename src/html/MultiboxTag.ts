@@ -1,6 +1,6 @@
 import type {Struts1Html} from "../../index.js";
 import {StringBuffer} from "../util/StringBuffer.js";
-import {BaseHandlerTag} from "./BaseHandlerTag.js";
+import {BaseHandlerTag, prepareAttribute} from "./BaseHandlerTag.js";
 
 /**
  * <html:multibox>
@@ -18,9 +18,9 @@ export class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
 
         const results = new StringBuffer(`<input type="checkbox"`);
 
-        results.attr("name", attr.property);
-        results.attr("accesskey", attr.accesskey);
-        results.attr("tabindex", attr.tabindex);
+        prepareAttribute(results, "name", attr.property);
+        prepareAttribute(results, "accesskey", attr.accesskey);
+        prepareAttribute(results, "tabindex", attr.tabindex);
 
         const value = this.prepareValue(results);
 
@@ -49,7 +49,7 @@ export class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
             throw new Error(`You must specify the value attribute or nested tag content`);
         }
 
-        results.attr("value", value);
+        prepareAttribute(results, "value", value);
 
         return value;
     }
@@ -61,7 +61,7 @@ export class MultiboxTag extends BaseHandlerTag<Struts1Html.MultiboxTagAttr> {
         const checked = this.context[this.attr.property];
 
         if (checkArray(checked, value)) {
-            results.attr("checked", "checked");
+            prepareAttribute(results, "checked", "checked");
         }
     }
 }

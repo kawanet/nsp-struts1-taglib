@@ -1,3 +1,4 @@
+import {$$} from "telesy";
 import {BodyTagSupport} from "../util/BodyTagSupport.js";
 import {StringBuffer} from "../util/StringBuffer.js";
 import type {BaseHandlerTagAttr} from "./BaseHandlerTagAttr.js";
@@ -33,28 +34,28 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
         const styles = new StringBuffer();
 
         if (errorsExist && attr.errorStyleId != null) {
-            styles.attr("id", attr.errorStyleId);
+            prepareAttribute(styles, "id", attr.errorStyleId);
         } else {
-            styles.attr("id", attr.styleId);
+            prepareAttribute(styles, "id", attr.styleId);
         }
 
         if (errorsExist && attr.errorStyle != null) {
-            styles.attr("style", attr.errorStyle);
+            prepareAttribute(styles, "style", attr.errorStyle);
         } else {
-            styles.attr("style", attr.style);
+            prepareAttribute(styles, "style", attr.style);
         }
 
         if (errorsExist && attr.errorStyleClass != null) {
-            styles.attr("class", attr.errorStyleClass);
+            prepareAttribute(styles, "class", attr.errorStyleClass);
         } else {
-            styles.attr("class", attr.styleClass);
+            prepareAttribute(styles, "class", attr.styleClass);
         }
 
         // TODO: message(getTitle(), getTitleKey())
-        styles.attr("title", attr.title);
+        prepareAttribute(styles, "title", attr.title);
 
         // TODO: message(getAlt(), getAltKey())
-        styles.attr("alt", attr.alt);
+        prepareAttribute(styles, "alt", attr.alt);
 
         this.prepareInternationalization(styles);
 
@@ -82,13 +83,13 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     protected prepareMouseEvents(handlers: StringBuffer) {
         const {attr} = this;
 
-        handlers.attr("onclick", attr.onclick);
-        handlers.attr("ondblclick", attr.ondblclick);
-        handlers.attr("onmouseover", attr.onmouseover);
-        handlers.attr("onmouseout", attr.onmouseout);
-        handlers.attr("onmousemove", attr.onmousemove);
-        handlers.attr("onmousedown", attr.onmousedown);
-        handlers.attr("onmouseup", attr.onmouseup);
+        prepareAttribute(handlers, "onclick", attr.onclick);
+        prepareAttribute(handlers, "ondblclick", attr.ondblclick);
+        prepareAttribute(handlers, "onmouseover", attr.onmouseover);
+        prepareAttribute(handlers, "onmouseout", attr.onmouseout);
+        prepareAttribute(handlers, "onmousemove", attr.onmousemove);
+        prepareAttribute(handlers, "onmousedown", attr.onmousedown);
+        prepareAttribute(handlers, "onmouseup", attr.onmouseup);
     }
 
     /**
@@ -98,9 +99,9 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     protected prepareKeyEvents(handlers: StringBuffer) {
         const {attr} = this;
 
-        handlers.attr("onkeydown", attr.onkeydown);
-        handlers.attr("onkeyup", attr.onkeyup);
-        handlers.attr("onkeypress", attr.onkeypress);
+        prepareAttribute(handlers, "onkeydown", attr.onkeydown);
+        prepareAttribute(handlers, "onkeyup", attr.onkeyup);
+        prepareAttribute(handlers, "onkeypress", attr.onkeypress);
     }
 
     /**
@@ -110,8 +111,8 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     protected prepareTextEvents(handlers: StringBuffer) {
         const {attr} = this;
 
-        handlers.attr("onselect", attr.onselect);
-        handlers.attr("onchange", attr.onchange);
+        prepareAttribute(handlers, "onselect", attr.onselect);
+        prepareAttribute(handlers, "onchange", attr.onchange);
     }
 
     /**
@@ -121,8 +122,8 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
     protected prepareFocusEvents(handlers: StringBuffer) {
         const {attr, doDisabled, doReadonly} = this;
 
-        handlers.attr("onblur", attr.onblur);
-        handlers.attr("onfocus", attr.onfocus);
+        prepareAttribute(handlers, "onblur", attr.onblur);
+        prepareAttribute(handlers, "onfocus", attr.onfocus);
 
         if (doDisabled) {
             if (attr.disabled) {
@@ -143,8 +144,8 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
      */
     protected prepareInternationalization(handlers: StringBuffer) {
         const {attr} = this;
-        handlers.attr("bundle", attr.bundle);
-        handlers.attr("dir", attr.dir);
+        prepareAttribute(handlers, "bundle", attr.bundle);
+        prepareAttribute(handlers, "dir", attr.dir);
     }
 
     /**
@@ -159,7 +160,7 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
      * given StringBuffer.
      */
     protected prepareAttribute(handlers: StringBuffer, name: string, value: any) {
-        handlers.attr(name, value);
+        return prepareAttribute(handlers, name, value);
     }
 
     /**
@@ -169,3 +170,11 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
         return ">";
     }
 }
+
+export const prepareAttribute = (handlers: StringBuffer, name: string, value: any) => {
+    if (value === true) {
+        handlers.append($$` ${name}`);
+    } else if (value != null) {
+        handlers.append($$` ${name}="${String(value)}"`);
+    }
+};

@@ -1,4 +1,3 @@
-import {$$} from "telesy";
 import {concat} from "./concat.js";
 
 export class StringBuffer {
@@ -11,14 +10,6 @@ export class StringBuffer {
     append(str: string | Promise<string>) {
         if (str != null) {
             this.buffer.push(str);
-        }
-    }
-
-    attr(key: string, value: any) {
-        if (value === true) {
-            this.buffer.push($$` ${key}`);
-        } else if (value != null) {
-            this.buffer.push($$` ${key}="${String(value)}"`);
         }
     }
 

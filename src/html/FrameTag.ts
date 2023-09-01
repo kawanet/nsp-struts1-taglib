@@ -1,5 +1,6 @@
 import type {Struts1Html} from "../../index.js";
 import {StringBuffer} from "../util/StringBuffer.js";
+import {prepareAttribute} from "./BaseHandlerTag.js";
 import {LinkTag} from "./LinkTag.js";
 
 /**
@@ -16,18 +17,18 @@ export class FrameTag extends LinkTag {
         // Print this element to our output writer
         const results = new StringBuffer("<frame");
 
-        results.attr("src", this.calculateURL());
-        results.attr("name", attr.name);
+        prepareAttribute(results, "src", this.calculateURL());
+        prepareAttribute(results, "name", attr.name);
 
         if (attr.noresize) {
             results.append(" noresize=\"noresize\"");
         }
 
-        results.attr("scrolling", attr.scrolling);
-        results.attr("marginheight", attr.marginheight);
-        results.attr("marginwidth", attr.marginwidth);
-        results.attr("frameborder", attr.frameborder);
-        results.attr("longdesc", attr.longdesc);
+        prepareAttribute(results, "scrolling", attr.scrolling);
+        prepareAttribute(results, "marginheight", attr.marginheight);
+        prepareAttribute(results, "marginwidth", attr.marginwidth);
+        prepareAttribute(results, "frameborder", attr.frameborder);
+        prepareAttribute(results, "longdesc", attr.longdesc);
 
         results.append(this.prepareStyles());
         this.prepareOtherAttributes(results);

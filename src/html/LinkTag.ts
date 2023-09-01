@@ -1,6 +1,6 @@
 import type {Struts1Html} from "../../index.js";
 import {StringBuffer} from "../util/StringBuffer.js";
-import {BaseHandlerTag} from "./BaseHandlerTag.js";
+import {BaseHandlerTag, prepareAttribute} from "./BaseHandlerTag.js";
 
 /**
  * <html:link>
@@ -17,11 +17,11 @@ export class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
 
         const results = new StringBuffer();
         results.append("<a");
-        results.attr("name", attr.name);
-        results.attr("href", this.calculateURL());
-        results.attr("target", attr.target);
-        results.attr("accesskey", attr.accesskey);
-        results.attr("tabindex", attr.tabindex);
+        prepareAttribute(results, "name", attr.name);
+        prepareAttribute(results, "href", this.calculateURL());
+        prepareAttribute(results, "target", attr.target);
+        prepareAttribute(results, "accesskey", attr.accesskey);
+        prepareAttribute(results, "tabindex", attr.tabindex);
         results.append(this.prepareStyles());
         results.append(this.prepareEventHandlers());
         this.prepareOtherAttributes(results);
