@@ -15,14 +15,12 @@ const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => ("object" === typeof
 export class SizeTag extends TagSupport<Struts1Bean.SizeTagAttr> {
     protected attr: Struts1Bean.SizeTagAttr;
 
-    render(): string {
+    render() {
         const {id} = this.attr;
 
         const collection = this.getCollection();
 
         this.context[id] = collection?.length;
-
-        return null;
     };
 
     protected getCollection(): ArrayLike<any> {

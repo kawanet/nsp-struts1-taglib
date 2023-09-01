@@ -6,7 +6,7 @@ export abstract class TagSupport<A> implements NSP.TagClass {
     /**
      * concrete class must implement this method to provide the content.
      */
-    abstract render(): string | Promise<string>;
+    abstract render(): string | Promise<string> | void | Promise<void>;
 
     constructor(protected tag: NSP.TagDef<A>, protected context: any) {
         this.attr = tag.attr(context);

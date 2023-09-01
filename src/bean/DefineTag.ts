@@ -13,7 +13,7 @@ import {TagUtils} from "../util/TagUtils.js";
 export class DefineTag extends BodyTagSupport<Struts1Bean.DefineTagAttr> {
     protected attr: Struts1Bean.DefineTagAttr;
 
-    async render(): Promise<string> {
+    async render() {
         const {attr, context} = this;
         const {name, property, scope, id} = attr;
         let {value} = attr;
@@ -44,7 +44,5 @@ export class DefineTag extends BodyTagSupport<Struts1Bean.DefineTagAttr> {
 
         // Expose this value as a scripting variable
         context[id] = value;
-
-        return;
     };
 }

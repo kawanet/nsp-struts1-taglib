@@ -20,7 +20,7 @@ const isFalse = (v: any): v is false => (v === false || v === "false");
 export class WriteTag extends TagSupport<Struts1Bean.WriteTagAttr> {
     protected attr: Struts1Bean.WriteTagAttr;
 
-    render(): string {
+    render() {
         const {context} = this;
         const {ignore, name, property, scope, filter} = this.attr;
 
