@@ -9,6 +9,10 @@ import {BaseFieldTag} from "./BaseFieldTag.js";
 export class PasswordTag extends BaseFieldTag<Struts1Html.PasswordTagAttr> {
     protected attr: Struts1Html.PasswordTagAttr;
 
+    protected type = "password";
+
+    protected doReadonly = true;
+
     render() {
         throw new Error("Not implemented: <html:password>");
         return null as string; // TODO

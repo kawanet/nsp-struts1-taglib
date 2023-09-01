@@ -9,6 +9,8 @@ import {BaseFieldTag} from "./BaseFieldTag.js";
 export class HiddenTag extends BaseFieldTag<Struts1Html.HiddenTagAttr> {
     protected attr: Struts1Html.HiddenTagAttr;
 
+    protected type = "hidden";
+
     render() {
         throw new Error("Not implemented: <html:hidden>");
         return null as string; // TODO

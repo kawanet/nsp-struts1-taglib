@@ -9,6 +9,8 @@ import {BaseHandlerTag} from "./BaseHandlerTag.js";
 export class ImgTag extends BaseHandlerTag<Struts1Html.ImgTagAttr> {
     protected attr: Struts1Html.ImgTagAttr;
 
+    protected doDisabled = false;
+
     render() {
         throw new Error("Not implemented: <html:img>");
         return null as string; // TODO

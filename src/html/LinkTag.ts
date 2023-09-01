@@ -10,6 +10,8 @@ import {BaseHandlerTag} from "./BaseHandlerTag.js";
 export class LinkTag extends BaseHandlerTag<Struts1Html.LinkTagAttr> {
     protected attr: Struts1Html.LinkTagAttr;
 
+    protected doDisabled = false;
+
     render() {
         const {attr} = this;
 

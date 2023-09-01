@@ -9,6 +9,8 @@ import {BaseInputTag} from "./BaseInputTag.js";
 export class TextareaTag extends BaseInputTag<Struts1Html.TextareaTagAttr> {
     protected attr: Struts1Html.TextareaTagAttr;
 
+    protected doReadonly = true;
+
     render() {
         throw new Error("Not implemented: <html:textarea>");
         return null as string; // TODO

@@ -9,6 +9,8 @@ import {BaseFieldTag} from "./BaseFieldTag.js";
 export class FileTag extends BaseFieldTag<Struts1Html.FileTagAttr> {
     protected attr: Struts1Html.FileTagAttr;
 
+    protected type = "file";
+
     render() {
         throw new Error("Not implemented: <html:file>");
         return null as string; // TODO
