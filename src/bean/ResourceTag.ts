@@ -1,6 +1,8 @@
 import type {Struts1Bean} from "../../index.js";
 import {TagSupport} from "../util/TagSupport.js";
 
+const isTrue = (v: any): v is true => (!!v && v !== "false");
+
 /**
  * <bean:resource>
  *
@@ -8,11 +10,30 @@ import {TagSupport} from "../util/TagSupport.js";
  * application resource.
  *
  * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/bean/ResourceTag.java
+ *
+ * @example
+ * nsp.hook("bean:resource", (name) => {
+ *     const path = `path/to/resources/${name}`;
+ *     return fs.promises.readFile(path, "utf-8");
+ * });
  */
 export class ResourceTag extends TagSupport<Struts1Bean.ResourceTagAttr> {
     protected attr: Struts1Bean.ResourceTagAttr;
 
-    render() {
-        throw new Error("Not implemented: <bean:resource>"); // TODO
-    };
+    async render() {
+        const {context} = this;
+        const {name, id, input} = this.attr;
+
+        if (isTrue(input)) {
+            throw new Error(`Not implemented: <bean:resource input="true">`);
+        }
+
+        const resource = await this.tag.app.process<Promise<string>>("bean:resource", name);
+
+        if (resource == null) {
+            throw new Error(`No resource ${name} available in this application`);
+        }
+
+        context[id] = resource;
+    }
 }

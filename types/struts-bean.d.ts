@@ -39,6 +39,17 @@ declare namespace Struts1Bean {
         write: NSP.TagCon<WriteTagAttr>;
     };
 
+    interface Hooks {
+        /**
+         * @example
+         * nsp.hook("bean:resource", async (name) => {
+         *     const path = `path/to/resources/${name}`;
+         *     return fs.promises.readFile(path, "utf-8");
+         * });
+         */
+        hook(type: "bean:resource", fn: (name: string) => Promise<string>): void;
+    }
+
     /**
      * <bean:cookie>
      * org.apache.struts.taglib.bean.CookieTag
@@ -536,7 +547,7 @@ declare namespace Struts1Bean {
          * attribute is not specified, the resource will be made available
          * as a <code>String</code>.</p>
          */
-        input?: string;
+        input?: string | boolean;
 
         /**
          * <p>Module-relative name (starting with a '/') of the web application
