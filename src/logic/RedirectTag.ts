@@ -10,7 +10,6 @@ export class RedirectTag extends TagSupport<Struts1Logic.RedirectTagAttr> {
     protected attr: Struts1Logic.RedirectTagAttr;
 
     render() {
-        throw new Error("Not implemented: <logic:redirect>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <logic:redirect>"); // TODO
     };
 }

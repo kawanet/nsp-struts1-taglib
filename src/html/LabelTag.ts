@@ -10,7 +10,6 @@ export class LabelTag extends BaseInputTag<Struts1Html.LabelTagAttr> {
     protected attr: Struts1Html.LabelTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:label>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:label>"); // TODO
     };
 }

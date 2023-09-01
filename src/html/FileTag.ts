@@ -12,7 +12,6 @@ export class FileTag extends BaseFieldTag<Struts1Html.FileTagAttr> {
     protected type = "file";
 
     render() {
-        throw new Error("Not implemented: <html:file>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:file>"); // TODO
     };
 }

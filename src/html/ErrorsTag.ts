@@ -10,7 +10,6 @@ export class ErrorsTag extends TagSupport<Struts1Html.ErrorsTagAttr> {
     protected attr: Struts1Html.ErrorsTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:errors>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:errors>"); // TODO
     };
 }

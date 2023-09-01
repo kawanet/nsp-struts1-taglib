@@ -10,7 +10,6 @@ export class ImageTag extends SubmitTag {
     protected attr: Struts1Html.ImageTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:image>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:image>"); // TODO
     };
 }

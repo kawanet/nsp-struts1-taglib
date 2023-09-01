@@ -13,7 +13,6 @@ export class CookieTag extends TagSupport<Struts1Bean.CookieTagAttr> {
     protected attr: Struts1Bean.CookieTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:cookie>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:cookie>"); // TODO
     };
 }

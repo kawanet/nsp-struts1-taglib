@@ -10,7 +10,6 @@ export class ButtonTag extends SubmitTag {
     protected attr: Struts1Html.ButtonTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:button>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:button>"); // TODO
     };
 }

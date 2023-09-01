@@ -13,7 +13,6 @@ export class PageTag extends TagSupport<Struts1Bean.PageTagAttr> {
     protected attr: Struts1Bean.PageTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:page>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:page>"); // TODO
     };
 }

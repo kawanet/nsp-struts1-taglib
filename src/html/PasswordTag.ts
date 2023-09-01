@@ -14,7 +14,6 @@ export class PasswordTag extends BaseFieldTag<Struts1Html.PasswordTagAttr> {
     protected doReadonly = true;
 
     render() {
-        throw new Error("Not implemented: <html:password>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:password>"); // TODO
     };
 }

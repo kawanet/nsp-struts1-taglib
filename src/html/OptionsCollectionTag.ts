@@ -10,7 +10,6 @@ export class OptionsCollectionTag extends TagSupport<Struts1Html.OptionsCollecti
     protected attr: Struts1Html.OptionsCollectionTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:optionsCollection>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:optionsCollection>"); // TODO
     };
 }

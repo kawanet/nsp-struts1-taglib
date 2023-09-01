@@ -10,7 +10,6 @@ export class MessagesTag extends BaseHandlerTag<Struts1Html.MessagesTagAttr> {
     protected attr: Struts1Html.MessagesTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:messages>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:messages>"); // TODO
     };
 }

@@ -10,7 +10,6 @@ export class RadioTag extends BaseHandlerTag<Struts1Html.RadioTagAttr> {
     protected attr: Struts1Html.RadioTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:radio>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:radio>"); // TODO
     };
 }

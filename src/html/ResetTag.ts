@@ -10,7 +10,6 @@ export class ResetTag extends SubmitTag {
     protected attr: Struts1Html.ResetTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:reset>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:reset>"); // TODO
     };
 }

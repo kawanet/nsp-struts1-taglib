@@ -13,7 +13,6 @@ export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
     protected attr: Struts1Bean.HeaderTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:header>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:header>"); // TODO
     };
 }

@@ -13,7 +13,6 @@ export class StrutsTag extends TagSupport<Struts1Bean.StrutsTagAttr> {
     protected attr: Struts1Bean.StrutsTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:struts>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:struts>"); // TODO
     };
 }

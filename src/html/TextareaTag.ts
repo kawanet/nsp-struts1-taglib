@@ -12,7 +12,6 @@ export class TextareaTag extends BaseInputTag<Struts1Html.TextareaTagAttr> {
     protected doReadonly = true;
 
     render() {
-        throw new Error("Not implemented: <html:textarea>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:textarea>"); // TODO
     };
 }

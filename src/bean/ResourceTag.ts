@@ -13,7 +13,6 @@ export class ResourceTag extends TagSupport<Struts1Bean.ResourceTagAttr> {
     protected attr: Struts1Bean.ResourceTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:resource>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:resource>"); // TODO
     };
 }

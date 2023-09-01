@@ -10,7 +10,6 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
     protected attr: Struts1Html.SelectTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:select>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:select>"); // TODO
     };
 }

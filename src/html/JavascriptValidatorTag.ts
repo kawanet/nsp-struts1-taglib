@@ -10,7 +10,6 @@ export class JavascriptValidatorTag extends BodyTagSupport<Struts1Html.Javascrip
     protected attr: Struts1Html.JavascriptTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:javascript>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:javascript>"); // TODO
     };
 }

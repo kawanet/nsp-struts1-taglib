@@ -10,7 +10,6 @@ export class SubmitTag extends BaseHandlerTag<Struts1Html.SubmitTagAttr> {
     protected attr: Struts1Html.SubmitTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:submit>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:submit>"); // TODO
     };
 }

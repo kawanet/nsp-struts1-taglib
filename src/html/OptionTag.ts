@@ -10,7 +10,6 @@ export class OptionTag extends BodyTagSupport<Struts1Html.OptionTagAttr> {
     protected attr: Struts1Html.OptionTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:option>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:option>"); // TODO
     };
 }

@@ -13,7 +13,6 @@ export class ParameterTag extends TagSupport<Struts1Bean.ParameterTagAttr> {
     protected attr: Struts1Bean.ParameterTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:parameter>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:parameter>"); // TODO
     };
 }

@@ -10,7 +10,6 @@ export class MessageTag extends TagSupport<Struts1Bean.MessageTagAttr> {
     protected attr: Struts1Bean.MessageTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:message>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <bean:message>"); // TODO
     };
 }

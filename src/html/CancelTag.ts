@@ -10,7 +10,6 @@ export class CancelTag extends SubmitTag {
     protected attr: Struts1Html.CancelTagAttr;
 
     render() {
-        throw new Error("Not implemented: <html:cancel>");
-        return null as string; // TODO
+        throw new Error("Not implemented: <html:cancel>"); // TODO
     };
 }
