@@ -32,7 +32,7 @@ export class IterateTag extends BodyTagSupport<Struts1Logic.IterateTagAttr> {
         }
 
         return buffer.toString();
-    };
+    }
 
     protected getCollection(): ArrayLike<any> {
         const {context} = this;

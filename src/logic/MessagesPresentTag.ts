@@ -11,6 +11,5 @@ export class MessagesPresentTag extends ConditionalTagBase<Struts1Logic.Messages
 
     protected condition(): boolean {
         throw new Error("Not implemented: <logic:messagesPresent>");
-        return null as boolean; // TODO
-    };
+    }
 }
