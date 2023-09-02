@@ -1,5 +1,4 @@
 import type {Struts1Logic} from "../../index.js";
-import {TagUtils} from "../util/TagUtils.js";
 import {ConditionalTagBase} from "./ConditionalTagBase.js";
 
 /**
@@ -27,13 +26,10 @@ export class PresentTag extends ConditionalTagBase<Struts1Logic.PresentTagAttr> 
      * found.
      */
     protected isBeanPresent(): boolean {
-        const {context} = this;
-        const {name, property, scope} = this.attr;
-
         let value: any;
 
         try {
-            value = TagUtils.getInstance().lookup(context, name, property, scope);
+            value = this.lookup();
         } catch (e) {
             value = null;
         }

@@ -1,4 +1,3 @@
-import {TagUtils} from "../util/TagUtils.js";
 import {ConditionalTagBase} from "./ConditionalTagBase.js";
 
 export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends ConditionalTagBase<A> {
@@ -9,13 +8,12 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
     }
 
     protected getLeft(): any {
-        const {context} = this;
-        const {name, property, scope} = this.attr;
+        const {name} = this.attr;
 
         let variable: any;
 
         if (name) {
-            variable = TagUtils.getInstance().lookup(context, name, property, scope);
+            variable = this.lookup();
         }
 
         if (variable == null) {
@@ -26,7 +24,7 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
     }
 
     protected getRight(): any {
-        return this.attr.value;
+        return this.attr.value ?? "";
     }
 
     /**
