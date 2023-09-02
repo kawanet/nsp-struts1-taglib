@@ -48,7 +48,7 @@ describe(TITLE, () => {
     });
 
     it('<bean:header>', async () => {
-        const src: string = '<bean:header name="${name}" id="result" value="${defaultValue}"/>[${result}]';
+        const src: string = '<bean:header name="${name}" id="result"/>[${result}]';
 
         const render = wrap(nsp.parse(src).toFn<Context>());
 
@@ -61,18 +61,24 @@ describe(TITLE, () => {
         assert.equal(render({name: "X-Foo-1"}), '[FOO]', "#4");
 
         assert.equal(render({name: "X-Foo-2"}), '[FOO]', "#5");
+    });
 
-        assert.equal(render({name: "X-Foo", defaultValue: "QUX"}), '[FOO]', "#6");
+    it('<bean:header value="">', async () => {
+        const src: string = '<bean:header name="${name}" id="result" value="QUX"/>[${result}]';
 
-        assert.equal(render({name: "X-Bar", defaultValue: "QUX"}), '[QUX]', "#7");
+        const render = wrap(nsp.parse(src).toFn<Context>());
 
-        assert.equal(render({name: "X-Foo-0", defaultValue: "QUX"}), '[QUX]', "#8");
+        assert.equal(render({name: "X-Foo"}), '[FOO]', "#6");
 
-        assert.equal(render({name: "X-Foo-1", defaultValue: "QUX"}), '[FOO]', "#9");
+        assert.equal(render({name: "X-Bar"}), '[QUX]', "#7");
+
+        assert.equal(render({name: "X-Foo-0"}), '[QUX]', "#8");
+
+        assert.equal(render({name: "X-Foo-1"}), '[FOO]', "#9");
     });
 
     it('<bean:header multiple>', async () => {
-        const src: string = '<bean:header multiple name="${name}" id="results" value="${defaultValue}"/>[${results.length}][${results[0]}]';
+        const src: string = '<bean:header multiple name="${name}" id="results" />[${results.length}][${results[0]}]';
 
         const render = wrap(nsp.parse(src).toFn<Context>());
 
@@ -87,13 +93,19 @@ describe(TITLE, () => {
         assert.equal(render({name: "X-Foo-2"}), '[2][FOO]', "#5");
 
         assert.equal(render({name: "X-Foo-3"}), '[3][FOO]', "#6");
+    });
 
-        assert.equal(render({name: "X-Foo", defaultValue: "QUX"}), '[1][FOO]', "#7");
+    it('<bean:header multiple value="">', async () => {
+        const src: string = '<bean:header multiple name="${name}" id="results" value="QUX"/>[${results.length}][${results[0]}]';
 
-        assert.equal(render({name: "X-Bar", defaultValue: "QUX"}), '[1][QUX]', "#8");
+        const render = wrap(nsp.parse(src).toFn<Context>());
 
-        assert.equal(render({name: "X-Foo-0", defaultValue: "QUX"}), '[1][QUX]', "#9");
+        assert.equal(render({name: "X-Foo"}), '[1][FOO]', "#7");
 
-        assert.equal(render({name: "X-Foo-1", defaultValue: "QUX"}), '[1][FOO]', "#10");
+        assert.equal(render({name: "X-Bar"}), '[1][QUX]', "#8");
+
+        assert.equal(render({name: "X-Foo-0"}), '[1][QUX]', "#9");
+
+        assert.equal(render({name: "X-Foo-1"}), '[1][FOO]', "#10");
     });
 });

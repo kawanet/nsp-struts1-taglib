@@ -35,24 +35,42 @@ export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
         }
     }
 
-    private getHeader(name: string): string | string[] {
+    private getHttpHeaders(): IncomingHttpHeaders {
         const headers = this.tag.app.store<IncomingHttpHeaders>(this.context, "headers").get();
 
         if (!headers) {
             throw new Error(`headers: IncomingHttpHeaders not stored in context`);
         }
 
-        return headers[name] ?? headers[name?.toLowerCase()];
+        return headers;
+    }
+
+    private getHeaders(name: string): string[] {
+        const headers = this.getHttpHeaders();
+        const item = headers[name] ?? headers[name?.toLowerCase()];
+
+        if (item == null) return;
+
+        if ("object" === typeof item) return item; // Partial<ArrayLike>
+
+        return [item];
+    }
+
+    private getHeader(name: string): string {
+        const headers = this.getHttpHeaders();
+        const item = headers[name] ?? headers[name?.toLowerCase()];
+
+        if (item == null) return;
+
+        if ("object" === typeof item) return item[0];
+
+        return item;
     }
 
     protected handleMultipleHeaders() {
         const {id, name, value} = this.attr;
 
-        let items = this.getHeader(name);
-
-        if (items && !Array.isArray(items)) {
-            items = [items];
-        }
+        let items = this.getHeaders(name);
 
         if (!items?.length && value) {
             items = [value];
@@ -69,10 +87,6 @@ export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
         const {id, name, value} = this.attr;
 
         let item = this.getHeader(name);
-
-        if (Array.isArray(item)) {
-            item = item[0];
-        }
 
         if (!item && value) {
             item = value;
