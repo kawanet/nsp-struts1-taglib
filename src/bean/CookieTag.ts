@@ -1,4 +1,5 @@
 import type {Struts1Bean} from "../../index.js";
+import {Cookie} from "../util/Cookie.js";
 import {TagSupport} from "../util/TagSupport.js";
 
 /**
@@ -13,6 +14,20 @@ export class CookieTag extends TagSupport<Struts1Bean.CookieTagAttr> {
     protected attr: Struts1Bean.CookieTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:cookie>"); // TODO
-    };
+        const {id, multiple, name, value} = this.attr;
+
+        const cookies = this.getRequest().getCookies() ?? [];
+
+        const values = cookies.filter(v => (v.getName() === name));
+
+        if (values.length < 1 && value) {
+            values.push(new Cookie(name, value));
+        }
+
+        if (values.length < 1) {
+            throw new Error(`No cookie ${name} was included in this request`);
+        }
+
+        this.context[id] = multiple ? values : values[0];
+    }
 }

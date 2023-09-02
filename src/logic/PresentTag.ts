@@ -10,7 +10,7 @@ import {ConditionalTagBase} from "./ConditionalTagBase.js";
 export class PresentTag extends ConditionalTagBase<Struts1Logic.PresentTagAttr> {
     protected attr: Struts1Logic.PresentTagAttr;
 
-    protected condition() {
+    protected condition(): boolean {
         const {name} = this.attr;
 
         let present = false;
@@ -20,7 +20,7 @@ export class PresentTag extends ConditionalTagBase<Struts1Logic.PresentTagAttr> 
         }
 
         return present;
-    };
+    }
 
     /**
      * Returns true if the bean given in the <code>name</code> attribute is

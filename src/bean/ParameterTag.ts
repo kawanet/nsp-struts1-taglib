@@ -13,6 +13,44 @@ export class ParameterTag extends TagSupport<Struts1Bean.ParameterTagAttr> {
     protected attr: Struts1Bean.ParameterTagAttr;
 
     render() {
-        throw new Error("Not implemented: <bean:parameter>"); // TODO
-    };
+        const {multiple} = this.attr;
+
+        if (multiple) {
+            this.handleMultiple();
+        } else {
+            this.handleSingle();
+        }
+    }
+
+    protected handleMultiple() {
+        const {id, name, value} = this.attr;
+
+        let items = this.getRequest().getParameterValues(name);
+
+        if (!items?.length && value) {
+            items = [value];
+        }
+
+        if (!items?.length) {
+            throw new Error(`No header ${name} was included in this request`);
+        }
+
+        this.context[id] = items;
+    }
+
+    protected handleSingle() {
+        const {id, name, value} = this.attr;
+
+        let item = this.getRequest().getParameter(name);
+
+        if (!item && value) {
+            item = value;
+        }
+
+        if (!item) {
+            throw new Error(`No parameter ${name} was included in this request`);
+        }
+
+        this.context[id] = item;
+    }
 }

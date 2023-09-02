@@ -44,5 +44,5 @@ export class DefineTag extends BodyTagSupport<Struts1Bean.DefineTagAttr> {
 
         // Expose this value as a scripting variable
         context[id] = value;
-    };
+    }
 }

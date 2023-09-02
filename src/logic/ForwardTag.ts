@@ -11,5 +11,5 @@ export class ForwardTag extends TagSupport<Struts1Logic.ForwardTagAttr> {
 
     render() {
         throw new Error("Not implemented: <logic:forward>"); // TODO
-    };
+    }
 }

@@ -7,6 +7,8 @@ import {CompareTagBase} from "./CompareTagBase.js";
  * @see https://github.com/apache/struts1/blob/trunk/taglib/src/main/java/org/apache/struts/taglib/logic/GreaterThanTag.java
  */
 export class GreaterThanTag extends CompareTagBase<Struts1Logic.GreaterThanTagAttr> {
+    protected attr: Struts1Logic.GreaterThanTagAttr;
+
     protected compare(left: any, right: any) {
         return left > right;
     }

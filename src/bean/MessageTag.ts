@@ -11,5 +11,5 @@ export class MessageTag extends TagSupport<Struts1Bean.MessageTagAttr> {
 
     render() {
         throw new Error("Not implemented: <bean:message>"); // TODO
-    };
+    }
 }
