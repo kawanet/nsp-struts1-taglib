@@ -1,4 +1,3 @@
-import type {IncomingHttpHeaders} from "http";
 import type {Struts1Bean} from "../../index.js";
 import {TagSupport} from "../util/TagSupport.js";
 
@@ -35,42 +34,10 @@ export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
         }
     }
 
-    private getHttpHeaders(): IncomingHttpHeaders {
-        const headers = this.tag.app.store<IncomingHttpHeaders>(this.context, "headers").get();
-
-        if (!headers) {
-            throw new Error(`headers: IncomingHttpHeaders not stored in context`);
-        }
-
-        return headers;
-    }
-
-    private getHeaders(name: string): string[] {
-        const headers = this.getHttpHeaders();
-        const item = headers[name] ?? headers[name?.toLowerCase()];
-
-        if (item == null) return;
-
-        if ("object" === typeof item) return item; // Partial<ArrayLike>
-
-        return [item];
-    }
-
-    private getHeader(name: string): string {
-        const headers = this.getHttpHeaders();
-        const item = headers[name] ?? headers[name?.toLowerCase()];
-
-        if (item == null) return;
-
-        if ("object" === typeof item) return item[0];
-
-        return item;
-    }
-
     protected handleMultipleHeaders() {
         const {id, name, value} = this.attr;
 
-        let items = this.getHeaders(name);
+        let items = this.getRequest().getHeaders(name);
 
         if (!items?.length && value) {
             items = [value];
@@ -86,7 +53,7 @@ export class HeaderTag extends TagSupport<Struts1Bean.HeaderTagAttr> {
     protected handleSingleHeader() {
         const {id, name, value} = this.attr;
 
-        let item = this.getHeader(name);
+        let item = this.getRequest().getHeader(name);
 
         if (!item && value) {
             item = value;

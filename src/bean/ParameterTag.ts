@@ -1,8 +1,6 @@
 import type {Struts1Bean} from "../../index.js";
 import {TagSupport} from "../util/TagSupport.js";
 
-type ParsedUrlQuery = { [key: string]: string | string[] };
-
 /**
  * <bean:parameter>
  *
@@ -18,46 +16,16 @@ export class ParameterTag extends TagSupport<Struts1Bean.ParameterTagAttr> {
         const {multiple} = this.attr;
 
         if (multiple) {
-            this.handleMultipleHeaders();
+            this.handleMultiple();
         } else {
-            this.handleSingleHeader();
+            this.handleSingle();
         }
     }
 
-    private getQuery(): ParsedUrlQuery {
-        const query = this.tag.app.store<ParsedUrlQuery>(this.context, "query").get();
-
-        if (!query) {
-            throw new Error(`query: ParsedUrlQuery not stored in context`);
-        }
-
-        return query;
-    }
-
-    private getParameterValues(name: string): string[] {
-        const item = this.getQuery()?.[name];
-
-        if (item == null) return;
-
-        if ("object" === typeof item) return item;
-
-        return [item];
-    }
-
-    private getParameter(name: string): string {
-        const item = this.getQuery()?.[name];
-
-        if (item == null) return;
-
-        if ("object" === typeof item) return item[0]; // Partial<ArrayLike>
-
-        return item;
-    }
-
-    protected handleMultipleHeaders() {
+    protected handleMultiple() {
         const {id, name, value} = this.attr;
 
-        let items = this.getParameterValues(name);
+        let items = this.getRequest().getParameterValues(name);
 
         if (!items?.length && value) {
             items = [value];
@@ -70,10 +38,10 @@ export class ParameterTag extends TagSupport<Struts1Bean.ParameterTagAttr> {
         this.context[id] = items;
     }
 
-    protected handleSingleHeader() {
+    protected handleSingle() {
         const {id, name, value} = this.attr;
 
-        let item = this.getParameter(name);
+        let item = this.getRequest().getParameter(name);
 
         if (!item && value) {
             item = value;
