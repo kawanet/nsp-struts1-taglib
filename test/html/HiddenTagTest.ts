@@ -17,12 +17,12 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:hidden>', async () => {
-        const src: string = '[]'; // TODO
+        const src: string = '<html:hidden property="hidden" value="Sssh! It\'s a secret. Nobody knows I\'m here."/>';
 
         const render = nsp.parse(src).toFn<Context>();
 
         const ctx: Context = {};
 
-        assert.equal(render(ctx), '[]');
+        assert.equal(render(ctx), '<input type="hidden" name="hidden" value="Sssh! It&apos;s a secret. Nobody knows I&apos;m here.">');
     });
 });
