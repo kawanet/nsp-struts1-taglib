@@ -23,11 +23,13 @@ describe(TITLE, () => {
 
     const query = {param1: "FOO", param2: ["BAR", "BUZ"]};
 
+    const req = {query};
+
     it('<bean:parameter>', async () => {
         const src: string = '<bean:parameter name="${name}" id="result"/>[${result}]';
         const render = nsp.parse(src).toFn<Context>();
         const ctx: Context = {};
-        nsp.store(ctx, "query").set(query);
+        nsp.store(ctx, "req").set(req);
 
         ctx.name = "param1";
         assert.equal(render(ctx), '[FOO]');
@@ -43,7 +45,7 @@ describe(TITLE, () => {
         const src: string = '<bean:parameter name="${name}" id="result" value="QUX"/>[${result}]';
         const render = nsp.parse(src).toFn<Context>();
         const ctx: Context = {};
-        nsp.store(ctx, "query").set(query);
+        nsp.store(ctx, "req").set(req);
 
         ctx.name = "param1";
         assert.equal(render(ctx), '[FOO]');
@@ -59,7 +61,7 @@ describe(TITLE, () => {
         const src: string = '<bean:parameter multiple name="${name}" id="results"/>[${results.length}][${results[0]}]';
         const render = nsp.parse(src).toFn<Context>();
         const ctx: Context = {};
-        nsp.store(ctx, "query").set(query);
+        nsp.store(ctx, "req").set(req);
 
         ctx.name = "param1";
         assert.equal(render(ctx), '[1][FOO]');
@@ -75,7 +77,7 @@ describe(TITLE, () => {
         const src: string = '<bean:parameter multiple name="${name}" id="results" value="QUX"/>[${results.length}][${results[0]}]';
         const render = nsp.parse(src).toFn<Context>();
         const ctx: Context = {};
-        nsp.store(ctx, "query").set(query);
+        nsp.store(ctx, "req").set(req);
 
         ctx.name = "param1";
         assert.equal(render(ctx), '[1][FOO]');

@@ -15,8 +15,8 @@ import {TagSupport} from "../util/TagSupport.js";
  *
  *     const ctx = {};
  *
- *     // store request headers to context before rendering
- *     nsp.store(ctx, "headers").set(req.headers);
+ *     // store request object to context before rendering
+ *     nsp.store(ctx, "req").set(req);
  *
  *     res.send(await render(ctx));
  * });

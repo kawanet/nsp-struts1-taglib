@@ -4,6 +4,11 @@ import type {HttpServletRequest} from "./HttpServletRequest.js";
 
 type ParsedUrlQuery = { [key: string]: string | string[] };
 
+interface PartialRequest {
+    headers?: IncomingHttpHeaders;
+    query?: ParsedUrlQuery;
+}
+
 /**
  * A bridge implementation from NSP to Tomcat Catalina
  *
@@ -14,20 +19,19 @@ export class Request implements HttpServletRequest {
         //
     }
 
-    private getHttpHeaders(): IncomingHttpHeaders {
-        const headers = this.app.store<IncomingHttpHeaders>(this.context, "headers").get();
+    protected getRequest(): PartialRequest {
+        const request = this.app.store<PartialRequest>(this.context, "req").get();
 
-        if (!headers) {
-            throw new Error(`headers: IncomingHttpHeaders not stored in context`);
+        if (!request) {
+            throw new Error(`request not stored in context`);
         }
 
-        return headers;
+        return request;
     }
 
     getHeader(name: string): string {
-        const headers = this.getHttpHeaders();
+        const {headers} = this.getRequest();
         const item = headers[name] ?? headers[name?.toLowerCase()];
-
         if (item == null) return;
 
         if ("object" === typeof item) return item[0];
@@ -36,9 +40,8 @@ export class Request implements HttpServletRequest {
     }
 
     getHeaders(name: string): string[] {
-        const headers = this.getHttpHeaders();
+        const {headers} = this.getRequest();
         const item = headers[name] ?? headers[name?.toLowerCase()];
-
         if (item == null) return;
 
         if ("object" === typeof item) return item; // Partial<ArrayLike>
@@ -46,19 +49,9 @@ export class Request implements HttpServletRequest {
         return [item];
     }
 
-    private getQuery(): ParsedUrlQuery {
-        const query = this.app.store<ParsedUrlQuery>(this.context, "query").get();
-
-        if (!query) {
-            throw new Error(`query: ParsedUrlQuery not stored in context`);
-        }
-
-        return query;
-    }
-
     getParameter(name: string): string {
-        const item = this.getQuery()?.[name];
-
+        const {query} = this.getRequest();
+        const item = query?.[name];
         if (item == null) return;
 
         if ("object" === typeof item) return item[0]; // Partial<ArrayLike>
@@ -67,8 +60,8 @@ export class Request implements HttpServletRequest {
     }
 
     getParameterValues(name: string): string[] {
-        const item = this.getQuery()?.[name];
-
+        const {query} = this.getRequest();
+        const item = query?.[name];
         if (item == null) return;
 
         if ("object" === typeof item) return item;

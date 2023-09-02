@@ -32,9 +32,11 @@ describe(TITLE, () => {
         "x-foo-3": ["FOO", "BAR", "BUZ"],
     };
 
+    const req = {headers};
+
     const wrap = (render: NSP.NodeFn<Context>): NSP.NodeFn<Context> => {
         return (ctx) => {
-            nsp.store(ctx, "headers").set(headers);
+            nsp.store(ctx, "req").set(req);
             return render(ctx);
         };
     };
