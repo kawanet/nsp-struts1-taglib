@@ -1,4 +1,4 @@
-import type {Struts1Logic} from "../../types/index.js";
+import type {Struts1Logic} from "../../index.js";
 import {EmptyTag} from "./EmptyTag.js";
 
 /**
