@@ -5,8 +5,12 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
     protected attr: A;
 
     protected condition(): boolean {
+        return this.compare(this.getLeft(), this.getRight());
+    }
+
+    protected getLeft(): any {
         const {context} = this;
-        const {name, property, value, scope} = this.attr;
+        const {name, property, scope} = this.attr;
 
         let variable: any;
 
@@ -18,7 +22,11 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
             variable = ""; // Coerce null to a zero-length String
         }
 
-        return this.compare(variable, value);
+        return variable;
+    }
+
+    protected getRight(): any {
+        return this.attr.value;
     }
 
     /**
