@@ -10,9 +10,4 @@ export class HiddenTag extends BaseFieldTag<Struts1Html.HiddenTagAttr> {
     protected attr: Struts1Html.HiddenTagAttr;
 
     protected type = "hidden";
-
-    render() {
-        let results = this.renderInputElement();
-        return results.toString();
-    }
 }

@@ -1,5 +1,6 @@
 import { StringBuffer } from "../util/StringBuffer.js";
 import { TagUtils } from "../util/TagUtils.js";
+import { prepareAttribute } from "./BaseHandlerTag.js";
 import {BaseInputTag} from "./BaseInputTag.js";
 import type {BaseInputTagAttr} from "./BaseInputTagAttr.js";
 
@@ -8,6 +9,11 @@ export abstract class BaseFieldTag<A extends Partial<BaseFieldTagAttr>> extends 
 
     protected abstract type: string;
 
+    render(): string | Promise<string> | void | Promise<void> {
+        let results = this.renderInputElement();
+        return results.toString();
+    }
+
     /**
      * Renders a fully formed &lt;input&gt; element.
      */
@@ -15,17 +21,17 @@ export abstract class BaseFieldTag<A extends Partial<BaseFieldTagAttr>> extends 
         const {attr} = this;
         const results = new StringBuffer("<input");
 
-        this.prepareAttribute(results, "type", this.type);
-        this.prepareAttribute(results, "name", this.prepareAttribute(results, "name", attr.property));
-        this.prepareAttribute(results, "accesskey", attr.accesskey);
-        this.prepareAttribute(results, "accept", attr.accept);
-        this.prepareAttribute(results, "maxlength", attr.maxlength);
-        this.prepareAttribute(results, "size", attr.cols);
-        this.prepareAttribute(results, "tabindex", attr.tabindex);
+        prepareAttribute(results, "type", this.type);
+        prepareAttribute(results, "name", attr.property);
+        prepareAttribute(results, "accesskey", attr.accesskey);
+        prepareAttribute(results, "accept", attr.accept);
+        prepareAttribute(results, "maxlength", attr.maxlength);
+        prepareAttribute(results, "size", attr.cols);
+        prepareAttribute(results, "tabindex", attr.tabindex);
         this.prepareValue(results);
         results.append(this.prepareEventHandlers());
         results.append(this.prepareStyles());
-        this.prepareAttribute(results, "autocomplete", attr.autocomplete);
+        prepareAttribute(results, "autocomplete", attr.autocomplete);
         this.prepareOtherAttributes(results);
         results.append(this.getElementClose());
 
