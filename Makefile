@@ -16,10 +16,17 @@ cjs/%.js: ./%.ts
 esm/%.js: %.ts
 	./node_modules/.bin/tsc -p tsconfig.json
 
-types/index.d.ts: index.ts
-	./node_modules/.bin/tsc --outDir tmp/ --declaration --emitDeclarationOnly $<
-	perl -pe 's#(type \{) +(.*?) +(})#$$1$$2$$3#; s#( from ".)/src/([a-z]+.)#$$1/struts-$$2#' < tmp/index.d.ts > $@
-	/bin/rm -f tmp/*.d.ts tmp/*/*.d.ts
+tmp/types/%.d.ts: %.ts
+	/bin/rm -fr tmp/types/
+	./node_modules/.bin/tsc --outDir tmp/types/ --declaration --emitDeclarationOnly $<
+
+types/index.d.ts: tmp/types/index.d.ts
+	perl -pe 's#(type \{) +(.*?) +(})#$$1$$2$$3#; \
+	  s#( from ".)/src/(bean|html|logic)#$$1/struts-$$2#; \
+	  s#( from ".)/src/(util)#$$1/$$2#; \
+	' < $< > $@
+	/bin/rm -fr types/util*
+	cp -pR tmp/types/src/util* types/
 
 test-title:
 	perl -i -pe 's#^const TITLE =.*#const TITLE = "$$ARGV";#' test/*.ts test/**/*.ts
