@@ -26,6 +26,8 @@ export class MatchTag extends ConditionalTagBase<Struts1Logic.MatchTagAttr> {
             matched = variable.startsWith(value);
         } else if (location === "end") {
             matched = variable.endsWith(value);
+        } else {
+            throw new Error(`Invalid match location ${location}`);
         }
 
         return matched;
