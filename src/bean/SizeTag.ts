@@ -2,7 +2,7 @@ import type {Struts1Bean} from "../../index.js";
 import {TagSupport} from "../util/TagSupport.js";
 import {TagUtils} from "../util/TagUtils.js";
 
-const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => ("object" === typeof v && "number" === typeof v.length);
+const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => (!!v && "object" === typeof v && "number" === typeof v.length);
 
 /**
  * <bean:size>
