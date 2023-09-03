@@ -1,5 +1,4 @@
 import type {Struts1Logic} from "../../index.js";
-import {TagUtils} from "../util/TagUtils.js";
 import {ConditionalTagBase} from "./ConditionalTagBase.js";
 
 /**
@@ -11,10 +10,7 @@ export class EmptyTag extends ConditionalTagBase<Struts1Logic.EmptyTagAttr> {
     protected attr: Struts1Logic.EmptyTagAttr;
 
     protected condition(): boolean {
-        const {context} = this;
-        const {name, property, scope} = this.attr;
-
-        const value: ArrayLike<any> = TagUtils.getInstance().lookup(context, name, property, scope);
+        const value: ArrayLike<any> = this.lookup();
 
         return value == null || value.length === 0;
     }
