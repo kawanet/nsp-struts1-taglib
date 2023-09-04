@@ -3,7 +3,7 @@ import {BodyTagSupport} from "../util/BodyTagSupport.js";
 import {StringBuffer} from "../util/StringBuffer.js";
 import {TagUtils} from "../util/TagUtils.js";
 
-const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => ("object" === typeof v && "number" === typeof v.length);
+const isArrayLike = <T = any>(v: any): v is ArrayLike<T> => (!!v && "object" === typeof v && "number" === typeof v.length);
 
 const isEmpty = (v: any): v is null => (v == null || v === "");
 

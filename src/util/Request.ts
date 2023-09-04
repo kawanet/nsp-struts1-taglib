@@ -72,7 +72,7 @@ export class Request implements HttpServletRequest {
         return [item];
     }
 
-    protected getRequest(): PartialRequest {
+    private getRequest(): PartialRequest {
         const request = this.app.store<PartialRequest>(this.context, "req").get();
 
         if (!request) {

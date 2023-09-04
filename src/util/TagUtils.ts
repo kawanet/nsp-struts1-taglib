@@ -2,7 +2,7 @@ import {PropertyUtils} from "./PropertyUtils.js";
 import {ResponseUtils} from "./ResponseUtils.js";
 
 export class TagUtils {
-    static instance: TagUtils;
+    private static instance: TagUtils;
 
     static getInstance() {
         return TagUtils.instance ??= new TagUtils();

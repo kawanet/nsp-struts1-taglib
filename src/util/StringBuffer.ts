@@ -1,4 +1,4 @@
-import {concat} from "./concat.js";
+import {concat} from "../internal/concat.js";
 
 export class StringBuffer {
     protected buffer: (string | Promise<string>)[];
