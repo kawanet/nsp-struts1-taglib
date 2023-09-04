@@ -19,9 +19,10 @@ esm/%.js: %.ts
 types/index.d.ts: index.ts src/impl.ts
 	./node_modules/.bin/tsc --outDir tmp/types/ --declaration --emitDeclarationOnly $^
 	perl -pe 's#( from ".)/src/(bean|html|logic)#$$1/struts-$$2#;' < tmp/types/index.d.ts > types/index.d.ts
-	/bin/rm -fr types/logic types/util
-	mkdir types/logic types/util
+	/bin/rm -fr types/html/ types/logic/ types/util/
+	mkdir types/html/ types/logic/ types/util/
 	cp tmp/types/src/impl.d.ts types/impl.d.ts
+	cp tmp/types/src/html/Base[FHI]*.d.ts types/html/
 	cp tmp/types/src/logic/Co*Base.d.ts types/logic/
 	cp tmp/types/src/util/*.d.ts types/util/
 

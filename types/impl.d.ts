@@ -1,3 +1,6 @@
+import { BaseFieldTag } from "./html/BaseFieldTag.js";
+import { BaseHandlerTag } from "./html/BaseHandlerTag.js";
+import { BaseInputTag } from "./html/BaseInputTag.js";
 import { CompareTagBase } from "./logic/CompareTagBase.js";
 import { ConditionalTagBase } from "./logic/ConditionalTagBase.js";
 import { BodyTagSupport } from "./util/BodyTagSupport.js";
@@ -9,8 +12,17 @@ import { TagSupport } from "./util/TagSupport.js";
  */
 export declare namespace Struts1Impl {
     interface struts1Impl {
+        bean: bean;
+        html: html;
         util: util;
         logic: logic;
+    }
+    interface bean {
+    }
+    interface html {
+        BaseFieldTag: typeof BaseFieldTag;
+        BaseHandlerTag: typeof BaseHandlerTag;
+        BaseInputTag: typeof BaseInputTag;
     }
     interface logic {
         CompareTagBase: typeof CompareTagBase;
