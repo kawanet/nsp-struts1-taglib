@@ -7,6 +7,9 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
         return this.compare(this.getLeft(), this.getRight());
     }
 
+    /**
+     * helper method to retrieve the left-side variable to compare
+     */
     protected getLeft(): any {
         const {name} = this.attr;
 
@@ -23,6 +26,9 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
         return variable;
     }
 
+    /**
+     * helper method to retrieve the right-side value to be compared
+     */
     protected getRight(): any {
         return this.attr.value ?? "";
     }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash -c make
 
-all: test-title types/index.d.ts types/impl.d.ts esm/index.js cjs/index.js esm/test/synopsis.test.js cjs/test/synopsis.test.js LICENSE
+all: test-title types/index.d.ts esm/index.js cjs/index.js esm/test/synopsis.test.js cjs/test/synopsis.test.js LICENSE
 
 test: test-esm test-cjs
 
@@ -16,18 +16,14 @@ cjs/%.js: ./%.ts
 esm/%.js: %.ts
 	./node_modules/.bin/tsc -p tsconfig.json
 
-tmp/types/%.d.ts: %.ts
-	/bin/rm -fr tmp/types/
-	./node_modules/.bin/tsc --outDir tmp/types/ --declaration --emitDeclarationOnly $<
-
-types/index.d.ts: tmp/types/index.d.ts
-	perl -pe 's#( from ".)/src/(bean|html|logic)#$$1/struts-$$2#; \
-	' < $< > $@
-
-types/impl.d.ts: tmp/types/src/impl.d.ts
-	cp $< $@
-	/bin/rm -fr types/util
-	cp -pR tmp/types/src/util types/
+types/index.d.ts: index.ts src/impl.ts
+	./node_modules/.bin/tsc --outDir tmp/types/ --declaration --emitDeclarationOnly $^
+	perl -pe 's#( from ".)/src/(bean|html|logic)#$$1/struts-$$2#;' < tmp/types/index.d.ts > types/index.d.ts
+	/bin/rm -fr types/logic types/util
+	mkdir types/logic types/util
+	cp tmp/types/src/impl.d.ts types/impl.d.ts
+	cp tmp/types/src/logic/Co*Base.d.ts types/logic/
+	cp tmp/types/src/util/*.d.ts types/util/
 
 test-title:
 	perl -i -pe 's#^const TITLE =.*#const TITLE = "$$ARGV";#' test/*.ts test/**/*.ts
@@ -37,6 +33,6 @@ LICENSE:
 	curl -so $@ https://raw.githubusercontent.com/apache/struts1/trunk/core/src/main/resources/LICENSE.txt
 
 clean:
-	/bin/rm -fr esm/*/ cjs/*/ esm/*.js cjs/*.js types/index.d.ts
+	/bin/rm -fr esm/*/ cjs/*/ esm/*.js cjs/*.js types/index.d.ts tmp/types/
 
 .PHONY: all clean test
