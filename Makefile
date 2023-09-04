@@ -1,6 +1,6 @@
 #!/usr/bin/env bash -c make
 
-all: test-title types/index.d.ts esm/index.js cjs/index.js esm/test/synopsis.test.js cjs/test/synopsis.test.js LICENSE
+all: test-title types/index.d.ts types/impl.d.ts esm/index.js cjs/index.js esm/test/synopsis.test.js cjs/test/synopsis.test.js LICENSE
 
 test: test-esm test-cjs
 
@@ -21,12 +21,13 @@ tmp/types/%.d.ts: %.ts
 	./node_modules/.bin/tsc --outDir tmp/types/ --declaration --emitDeclarationOnly $<
 
 types/index.d.ts: tmp/types/index.d.ts
-	perl -pe 's#(type \{) +(.*?) +(})#$$1$$2$$3#; \
-	  s#( from ".)/src/(bean|html|logic)#$$1/struts-$$2#; \
-	  s#( from ".)/src/(util)#$$1/$$2#; \
+	perl -pe 's#( from ".)/src/(bean|html|logic)#$$1/struts-$$2#; \
 	' < $< > $@
-	/bin/rm -fr types/util*
-	cp -pR tmp/types/src/util* types/
+
+types/impl.d.ts: tmp/types/src/impl.d.ts
+	cp $< $@
+	/bin/rm -fr types/util
+	cp -pR tmp/types/src/util types/
 
 test-title:
 	perl -i -pe 's#^const TITLE =.*#const TITLE = "$$ARGV";#' test/*.ts test/**/*.ts

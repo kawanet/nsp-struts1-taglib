@@ -23,6 +23,11 @@
         "default": "./esm/index.js"
       },
       "require": "./cjs/index.js"
+    },
+    "./impl": {
+      "types": "./types/impl.d.ts",
+      "import": "./esm/src/impl.js",
+      "require": "./cjs/src/impl.js"
     }
   },
   "files": [
@@ -33,7 +38,7 @@
     "esm/package.json",
     "esm/src/**/*.js",
     "package.json",
-    "types/*.d.ts"
+    "types/**/*.d.ts"
   ],
   "homepage": "https://github.com/kawanet/nsp-struts1-taglib#readme",
   "keywords": [
@@ -60,5 +65,12 @@
   },
   "sideEffects": false,
   "type": "module",
-  "types": "./types/index.d.ts"
+  "types": "./types/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "impl": [
+        "./types/impl.d.ts"
+      ]
+    }
+  }
 }
