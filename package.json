@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/kawanet/nsp-struts1-taglib/issues"
   },
+  "contributors": [
+    "Toshiyuki Saito <toshiyuki.saito.16@gmail.com>",
+    "Yusuke Kawasaki <u-suke@kawa.net>"
+  ],
   "dependencies": {
     "telesy": "^1.1.3"
   },
