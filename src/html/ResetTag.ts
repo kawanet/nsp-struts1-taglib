@@ -9,7 +9,7 @@ import {SubmitTag} from "./SubmitTag.js";
 export class ResetTag extends SubmitTag {
     protected attr: Struts1Html.ResetTagAttr;
 
-    render() {
+    async render(): Promise<string> {
         throw new Error("Not implemented: <html:reset>"); // TODO
     };
 }

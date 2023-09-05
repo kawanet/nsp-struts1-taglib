@@ -9,7 +9,7 @@ import {SubmitTag} from "./SubmitTag.js";
 export class CancelTag extends SubmitTag {
     protected attr: Struts1Html.CancelTagAttr;
 
-    render() {
+    async render(): Promise<string> {
         throw new Error("Not implemented: <html:cancel>"); // TODO
     };
 }

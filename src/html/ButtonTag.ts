@@ -9,7 +9,7 @@ import {SubmitTag} from "./SubmitTag.js";
 export class ButtonTag extends SubmitTag {
     protected attr: Struts1Html.ButtonTagAttr;
 
-    render() {
+    async render(): Promise<string> {
         throw new Error("Not implemented: <html:button>"); // TODO
     };
 }

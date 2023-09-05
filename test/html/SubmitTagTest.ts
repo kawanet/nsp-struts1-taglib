@@ -17,12 +17,22 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:submit>', async () => {
-        const src: string = '[]'; // TODO
+        const src: string = '<html:submit/>';
 
         const render = nsp.parse(src).toFn<Context>();
 
         const ctx: Context = {};
 
-        assert.equal(render(ctx), '[]');
+        assert.equal(await render(ctx), '<input type="submit" value="Submit">');
+    });
+
+    it('<html:submit> has child', async () => {
+        const src: string = '<html:submit>test</html:submit>';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        const ctx: Context = {};
+
+        assert.equal(await render(ctx), '<input type="submit" value="test">');
     });
 });
