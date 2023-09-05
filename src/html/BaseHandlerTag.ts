@@ -2,6 +2,8 @@ import {$$} from "telesy";
 import {BodyTagSupport} from "../util/BodyTagSupport.js";
 import {StringBuffer} from "../util/StringBuffer.js";
 import type {BaseHandlerTagAttr} from "./BaseHandlerTagAttr.js";
+import { TagUtils } from "../util/TagUtils.js";
+import { BeanUtils } from "../util/BeanUtils.js";
 
 export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> extends BodyTagSupport<A> {
     protected attr: A;
@@ -168,6 +170,25 @@ export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> exte
      */
     protected getElementClose() {
         return ">";
+    }
+
+    /**
+     * Searches all scopes for the bean and calls BeanUtils.getProperty() with
+     * the given arguments and converts any exceptions into JspException.
+     */
+    protected lookupProperty(beanName: string, property: string): string {
+        const bean =
+            TagUtils.getInstance().lookup(this.context, beanName, null);
+
+        if (bean == null) {
+            throw new Error(`Cannot find bean under name ${beanName}`);
+        }
+
+        try {
+            return BeanUtils.getProperty(bean, property);
+        } catch (e) {
+            throw new Error(`Cannot access property ${property} for bean under name ${beanName}`);
+        }
     }
 }
 
