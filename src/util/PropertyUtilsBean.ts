@@ -18,4 +18,8 @@ export class PropertyUtilsBean {
 
         return bean as T;
     }
+
+    getNestedProperty<T>(bean: any, name: string): T {
+        return this.getProperty(bean, name);
+    }
 }

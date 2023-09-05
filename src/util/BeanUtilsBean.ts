@@ -39,4 +39,13 @@ export class BeanUtilsBean {
             return results;
         }
     }
+
+    public getProperty(bean: any, name: string): string {
+        return this.getNestedProperty(bean, name);
+    }
+
+    public getNestedProperty(bean: any, name: string): string {
+        const value = this.getPropertyUtils().getNestedProperty(bean, name);
+        return this.getConvertUtils().convert(value);
+    }
 }
