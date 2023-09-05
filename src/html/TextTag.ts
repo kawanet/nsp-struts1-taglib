@@ -12,8 +12,4 @@ export class TextTag extends BaseFieldTag<Struts1Html.TextTagAttr> {
     protected type = "text";
 
     protected doReadonly = true;
-
-    render() {
-        throw new Error("Not implemented: <html:text>"); // TODO
-    };
 }
