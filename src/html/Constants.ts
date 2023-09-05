@@ -8,4 +8,9 @@ export class Constants {
      * The attribute key for the bean our form is related to.
      */
     public static readonly BEAN_KEY = Constants.Package + ".BEAN";
+
+    /**
+     * The attribute key for the select tag itself.
+     */
+    public static readonly SELECT_KEY = Constants.Package + ".SELECT";
 }
