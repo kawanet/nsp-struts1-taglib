@@ -32,6 +32,6 @@ describe(TITLE, () => {
         const render = nsp.parse(src).toFn<Context>();
 
         const ctx: Context = {};
-        assert.rejects(async () => render(ctx), "Option tag must be nested in a Select tag")
+        await assert.rejects(async () => render(ctx), new Error("Option tag must be nested in a Select tag"))
     })
 });
