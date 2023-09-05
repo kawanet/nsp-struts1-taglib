@@ -39,8 +39,9 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
                 value = "";
             }
 
-            this.saveBody = value;
+            // TODO
             // this.saveBody = value.trim();
+            this.saveBody = value;
         }
 
         // Remove the page scope attributes we created
@@ -82,6 +83,8 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
         const results = new StringBuffer("<select");
 
         prepareAttribute(results, "name", attr.property);
+
+        // TODO
         // prepareAttribute(results, "accesskey", attr.accesskey);
 
         if (attr.multiple != null && !(attr.multiple === "false")) {

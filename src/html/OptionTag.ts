@@ -129,6 +129,7 @@ export class OptionTag extends BodyTagSupport<Struts1Html.OptionTagAttr> {
                 return (literal);
             }
         } else {
+            // TODO if (key != null) {
             return null;
         }
     }
@@ -141,6 +142,7 @@ export class OptionTag extends BodyTagSupport<Struts1Html.OptionTagAttr> {
         let optionText = this._text;
 
         if ((optionText == null) && (attr.key != null)) {
+            // TODO
             optionText = null;
         }
 
