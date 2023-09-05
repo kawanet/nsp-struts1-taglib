@@ -5,7 +5,7 @@ export declare class BeanUtilsBean {
     static getInstance(): BeanUtilsBean;
     private propertyUtilsBean;
     getPropertyUtils(): PropertyUtilsBean;
-    convertUtilsBean: ConvertUtilsBean;
+    private convertUtilsBean: ConvertUtilsBean;
     getConvertUtils(): ConvertUtilsBean;
     getArrayProperty(bean: any, name: string): any[];
 }

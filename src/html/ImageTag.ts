@@ -9,7 +9,7 @@ import {SubmitTag} from "./SubmitTag.js";
 export class ImageTag extends SubmitTag {
     protected attr: Struts1Html.ImageTagAttr;
 
-    render() {
+    async render(): Promise<string> {
         throw new Error("Not implemented: <html:image>"); // TODO
     };
 }

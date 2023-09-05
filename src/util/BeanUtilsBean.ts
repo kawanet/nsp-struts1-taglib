@@ -14,7 +14,7 @@ export class BeanUtilsBean {
         return this.propertyUtilsBean ??= new PropertyUtilsBean();
     }
 
-    convertUtilsBean: ConvertUtilsBean;
+    private convertUtilsBean: ConvertUtilsBean;
 
     public getConvertUtils(): ConvertUtilsBean {
         return this.convertUtilsBean ??= new ConvertUtilsBean();
