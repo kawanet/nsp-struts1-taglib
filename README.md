@@ -42,7 +42,7 @@ const {beanTags, htmlTags, logicTags} = require("nsp-struts1-taglib");
 
 ## COMPATIBILITY
 
-34 / 58 tags implemented.
+35 / 58 tags implemented.
 
 ## Struts Bean Tags
 
@@ -70,7 +70,7 @@ const {beanTags, htmlTags, logicTags} = require("nsp-struts1-taglib");
 | `<html:checkbox>`          | CheckboxTag            | 🕑 Not Yet |                                     |
 | `<html:errors>`            | ErrorsTag              | 🕑 Not Yet |                                     |
 | `<html:file>`              | FileTag                | 🕑 Not Yet |                                     |
-| `<html:form>`              | FormTag                | 🕑 Not Yet |                                     |
+| `<html:form>`              | FormTag                | 👍 OK      | some features not supported yet     |
 | `<html:frame>`             | FrameTag               | 👍 OK      |                                     |
 | `<html:hidden>`            | HiddenTag              | 👍 OK      |                                     |
 | `<html:html>`              | HtmlTag                | 👍 OK      | Locale not supported yet            |

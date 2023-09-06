@@ -17,12 +17,12 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:form>', async () => {
-        const src: string = '[]'; // TODO
+        const src: string = '<html:form action="/logon" method="get"><html:submit>SUBMIT</html:submit></html:form>';
 
         const render = nsp.parse(src).toFn<Context>();
 
         const ctx: Context = {};
 
-        assert.equal(render(ctx), '[]');
+        assert.equal(await render(ctx), '<form method="get" action="/logon"><input type="submit" value="SUBMIT"></form>');
     });
 });
