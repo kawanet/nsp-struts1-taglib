@@ -11,5 +11,5 @@ export class ParamTag extends BodyTagSupport<Struts1Html.ParamTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:param>"); // TODO
-    };
+    }
 }

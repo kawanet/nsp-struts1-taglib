@@ -11,5 +11,5 @@ export class CheckboxTag extends BaseHandlerTag<Struts1Html.CheckboxTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:checkbox>"); // TODO
-    };
+    }
 }

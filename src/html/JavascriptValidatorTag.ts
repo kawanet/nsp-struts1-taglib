@@ -11,5 +11,5 @@ export class JavascriptValidatorTag extends BodyTagSupport<Struts1Html.Javascrip
 
     render() {
         throw new Error("Not implemented: <html:javascript>"); // TODO
-    };
+    }
 }

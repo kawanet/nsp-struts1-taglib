@@ -17,7 +17,7 @@ export class TextareaTag extends BaseInputTag<Struts1Html.TextareaTagAttr> {
     render() {
         const results = this.renderTextareaElement();
         return results
-    };
+    }
 
     /**
      * Generate an HTML &lt;textarea&gt; tag.

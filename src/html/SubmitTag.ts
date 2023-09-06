@@ -39,7 +39,7 @@ export class SubmitTag extends BaseHandlerTag<Struts1Html.SubmitTagAttr> {
         results.append(this.getElementClose());
 
         return results.toString();
-    };
+    }
 
     /**
      * Render the opening element.
@@ -83,5 +83,4 @@ export class SubmitTag extends BaseHandlerTag<Struts1Html.SubmitTagAttr> {
     protected getDefaultValue(): string {
         return "Submit";
     }
-
 }

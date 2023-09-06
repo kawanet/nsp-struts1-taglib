@@ -11,5 +11,5 @@ export class RewriteTag extends LinkTag {
 
     render() {
         return this.calculateURL();
-    };
+    }
 }

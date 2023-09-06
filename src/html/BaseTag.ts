@@ -11,5 +11,5 @@ export class BaseTag extends TagSupport<Struts1Html.BaseTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:base>"); // TODO
-    };
+    }
 }

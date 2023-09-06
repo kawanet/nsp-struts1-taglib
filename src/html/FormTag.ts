@@ -11,5 +11,5 @@ export class FormTag extends TagSupport<Struts1Html.FormTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:form>"); // TODO
-    };
+    }
 }

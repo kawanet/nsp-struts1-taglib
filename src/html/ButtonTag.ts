@@ -11,5 +11,5 @@ export class ButtonTag extends SubmitTag {
 
     async render(): Promise<string> {
         throw new Error("Not implemented: <html:button>"); // TODO
-    };
+    }
 }

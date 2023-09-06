@@ -18,7 +18,7 @@ export class HtmlTag extends TagSupport<Struts1Html.HtmlTagAttr> {
         const end = "</html>";
 
         return this.tag.app.concat(start, body, end);
-    };
+    }
 
     protected renderHtmlStartElement() {
         const sb = new StringBuffer("<html");

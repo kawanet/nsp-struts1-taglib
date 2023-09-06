@@ -11,5 +11,5 @@ export class MessagesTag extends BaseHandlerTag<Struts1Html.MessagesTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:messages>"); // TODO
-    };
+    }
 }

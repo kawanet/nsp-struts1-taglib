@@ -13,5 +13,5 @@ export class ImgTag extends BaseHandlerTag<Struts1Html.ImgTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:img>"); // TODO
-    };
+    }
 }

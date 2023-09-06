@@ -11,5 +11,5 @@ export class LabelTag extends BaseInputTag<Struts1Html.LabelTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:label>"); // TODO
-    };
+    }
 }

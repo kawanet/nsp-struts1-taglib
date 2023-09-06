@@ -35,7 +35,7 @@ export class RadioTag extends BaseHandlerTag<Struts1Html.RadioTagAttr> {
         }
 
         return results.toString();
-    };
+    }
 
     /**
      * Return the String to be used in the radio tag's <code>value</code>
@@ -90,5 +90,4 @@ export class RadioTag extends BaseHandlerTag<Struts1Html.RadioTagAttr> {
 
         return results;
     }
-
 }

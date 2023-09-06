@@ -20,7 +20,7 @@ describe(TITLE, () => {
         render() {
             const {bar} = this.attr;
             return bar;
-        };
+        }
     }
 
     const nsp = createNSP();

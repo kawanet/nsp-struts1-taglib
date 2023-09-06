@@ -56,7 +56,7 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
         results.append("</select>");
 
         return results.toString();
-    };
+    }
 
     /**
      * Does the specified value match one of those we are looking for?

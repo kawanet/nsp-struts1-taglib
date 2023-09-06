@@ -11,5 +11,5 @@ export class ResetTag extends SubmitTag {
 
     async render(): Promise<string> {
         throw new Error("Not implemented: <html:reset>"); // TODO
-    };
+    }
 }

@@ -11,5 +11,5 @@ export class XhtmlTag extends TagSupport<Struts1Html.XhtmlTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:xhtml>"); // TODO
-    };
+    }
 }

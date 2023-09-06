@@ -11,5 +11,5 @@ export class CancelTag extends SubmitTag {
 
     async render(): Promise<string> {
         throw new Error("Not implemented: <html:cancel>"); // TODO
-    };
+    }
 }

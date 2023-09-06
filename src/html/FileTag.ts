@@ -13,5 +13,5 @@ export class FileTag extends BaseFieldTag<Struts1Html.FileTagAttr> {
 
     render() {
         throw new Error("Not implemented: <html:file>"); // TODO
-    };
+    }
 }

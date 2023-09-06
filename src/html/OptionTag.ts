@@ -34,7 +34,7 @@ export class OptionTag extends BodyTagSupport<Struts1Html.OptionTagAttr> {
         }
 
         return this.renderOptionElement().toString();
-    };
+    }
 
     /**
      * Generate an HTML %lt;option&gt; element.

@@ -11,5 +11,5 @@ export class OptionsCollectionTag extends TagSupport<Struts1Html.OptionsCollecti
 
     render() {
         throw new Error("Not implemented: <html:optionsCollection>"); // TODO
-    };
+    }
 }
