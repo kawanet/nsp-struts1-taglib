@@ -5,7 +5,9 @@ export declare class BeanUtilsBean {
     static getInstance(): BeanUtilsBean;
     private propertyUtilsBean;
     getPropertyUtils(): PropertyUtilsBean;
-    private convertUtilsBean: ConvertUtilsBean;
+    private convertUtilsBean;
     getConvertUtils(): ConvertUtilsBean;
     getArrayProperty(bean: any, name: string): any[];
+    getProperty(bean: any, name: string): string;
+    getNestedProperty(bean: any, name: string): string;
 }

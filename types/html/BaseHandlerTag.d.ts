@@ -63,5 +63,10 @@ export declare abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAtt
      * Returns the closing brace for an input element
      */
     protected getElementClose(): string;
+    /**
+     * Searches all scopes for the bean and calls BeanUtils.getProperty() with
+     * the given arguments and converts any exceptions into JspException.
+     */
+    protected lookupProperty(beanName: string, property: string): string;
 }
 export declare const prepareAttribute: (handlers: StringBuffer, name: string, value: any) => void;
