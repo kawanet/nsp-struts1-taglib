@@ -1,9 +1,9 @@
 import type {Struts1Html} from "../../index.js";
-import { BeanUtils } from "../util/BeanUtils.js";
-import { StringBuffer } from "../util/StringBuffer.js";
-import { TagUtils } from "../util/TagUtils.js";
+import {BeanUtils} from "../util/BeanUtils.js";
+import {StringBuffer} from "../util/StringBuffer.js";
+import {TagUtils} from "../util/TagUtils.js";
 import {BaseHandlerTag, prepareAttribute} from "./BaseHandlerTag.js";
-import { Constants } from "./Constants.js";
+import {Constants} from "./Constants.js";
 
 /**
  * <html:select>

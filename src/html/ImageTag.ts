@@ -1,7 +1,7 @@
 import type {Struts1Html} from "../../index.js";
-import { ResponseUtils } from "../util/ResponseUtils.js";
-import { StringBuffer } from "../util/StringBuffer.js";
-import { prepareAttribute } from "./BaseHandlerTag.js";
+import {ResponseUtils} from "../util/ResponseUtils.js";
+import {StringBuffer} from "../util/StringBuffer.js";
+import {prepareAttribute} from "./BaseHandlerTag.js";
 import {SubmitTag} from "./SubmitTag.js";
 
 /**

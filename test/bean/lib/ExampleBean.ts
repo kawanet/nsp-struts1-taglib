@@ -16,7 +16,7 @@ export class ExamplBean {
     dateValue = new Date();
 
     /** A list */
-    list: any[] = new Array();
+    list: any[] = [];
 
     /** An array */
     array: string[] = ["Red", "Green", "Blue", "Black", "Orange"];

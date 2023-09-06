@@ -1,10 +1,10 @@
 interface Converter {
-    convert (value: any): any;
+    convert(value: any): any;
 }
 
 export class ConvertUtilsBean {
 
-    private converters: {[key: string]: Converter} = {
+    private converters: { [key: string]: Converter } = {
         string: {convert: (value: any) => `${value}`},
     };
 

@@ -1,9 +1,9 @@
 import {$$} from "telesy";
+import {BeanUtils} from "../util/BeanUtils.js";
 import {BodyTagSupport} from "../util/BodyTagSupport.js";
 import {StringBuffer} from "../util/StringBuffer.js";
+import {TagUtils} from "../util/TagUtils.js";
 import type {BaseHandlerTagAttr} from "./BaseHandlerTagAttr.js";
-import { TagUtils } from "../util/TagUtils.js";
-import { BeanUtils } from "../util/BeanUtils.js";
 
 export abstract class BaseHandlerTag<A extends Partial<BaseHandlerTagAttr>> extends BodyTagSupport<A> {
     protected attr: A;

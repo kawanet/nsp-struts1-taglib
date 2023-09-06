@@ -1,9 +1,9 @@
 import type {Struts1Html} from "../../index.js";
 import {BodyTagSupport} from "../util/BodyTagSupport.js";
-import { StringBuffer } from "../util/StringBuffer.js";
-import { TagUtils } from "../util/TagUtils.js";
-import { Constants } from "./Constants.js";
-import { SelectTag } from "./SelectTag.js";
+import {StringBuffer} from "../util/StringBuffer.js";
+import {TagUtils} from "../util/TagUtils.js";
+import {Constants} from "./Constants.js";
+import {SelectTag} from "./SelectTag.js";
 
 /**
  * <html:option>
@@ -45,8 +45,7 @@ export class OptionTag extends BodyTagSupport<Struts1Html.OptionTagAttr> {
 
         if (attr.filter) {
             results.append(TagUtils.getInstance().filter(attr.value));
-        }
-        else {
+        } else {
             results.append(attr.value);
         }
         results.append("\"");

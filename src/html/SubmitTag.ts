@@ -1,5 +1,5 @@
 import type {Struts1Html} from "../../index.js";
-import { StringBuffer } from "../util/StringBuffer.js";
+import {StringBuffer} from "../util/StringBuffer.js";
 import {BaseHandlerTag, prepareAttribute} from "./BaseHandlerTag.js";
 
 /**
@@ -15,7 +15,7 @@ export class SubmitTag extends BaseHandlerTag<Struts1Html.SubmitTagAttr> {
      */
     protected text: string = null;
 
-   async render(): Promise<string> {
+    async render(): Promise<string> {
         const {attr} = this;
         this.text = null;
 

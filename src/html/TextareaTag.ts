@@ -1,7 +1,7 @@
 import type {Struts1Html} from "../../index.js";
-import { StringBuffer } from "../util/StringBuffer.js";
-import { TagUtils } from "../util/TagUtils.js";
-import { prepareAttribute } from "./BaseHandlerTag.js";
+import {StringBuffer} from "../util/StringBuffer.js";
+import {TagUtils} from "../util/TagUtils.js";
+import {prepareAttribute} from "./BaseHandlerTag.js";
 import {BaseInputTag} from "./BaseInputTag.js";
 
 /**
@@ -22,7 +22,7 @@ export class TextareaTag extends BaseInputTag<Struts1Html.TextareaTagAttr> {
     /**
      * Generate an HTML &lt;textarea&gt; tag.
      */
-    protected renderTextareaElement(): string |Promise<string> {
+    protected renderTextareaElement(): string | Promise<string> {
         const {attr} = this;
         const results = new StringBuffer("<textarea");
 

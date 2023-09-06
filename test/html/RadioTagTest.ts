@@ -1,7 +1,7 @@
 import {strict as assert} from "assert";
 import {createNSP} from "nsp-server-pages";
-import {htmlTags, beanTags} from "../../index.js";
-import { PrepareBeanAction } from "../bean/lib/PrepareBeanAction.js";
+import {beanTags, htmlTags} from "../../index.js";
+import {PrepareBeanAction} from "../bean/lib/PrepareBeanAction.js";
 
 const TITLE = "test/html/RadioTagTest.ts";
 

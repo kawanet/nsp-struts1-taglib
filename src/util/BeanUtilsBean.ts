@@ -1,4 +1,4 @@
-import { ConvertUtilsBean } from "./ConvertUtilsBean.js";
+import {ConvertUtilsBean} from "./ConvertUtilsBean.js";
 import {PropertyUtilsBean} from "./PropertyUtilsBean.js";
 
 export class BeanUtilsBean {

@@ -1,4 +1,4 @@
-import { BeanUtilsBean } from "./BeanUtilsBean.js";
+import {BeanUtilsBean} from "./BeanUtilsBean.js";
 
 export class BeanUtils {
     public static getArrayProperty(bean: any, name: string): any[] {

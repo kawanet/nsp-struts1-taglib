@@ -1,6 +1,6 @@
 import type {Struts1Html} from "../../index.js";
-import { StringBuffer } from "../util/StringBuffer.js";
-import { TagUtils } from "../util/TagUtils.js";
+import {StringBuffer} from "../util/StringBuffer.js";
+import {TagUtils} from "../util/TagUtils.js";
 import {BaseHandlerTag, prepareAttribute} from "./BaseHandlerTag.js";
 
 /**

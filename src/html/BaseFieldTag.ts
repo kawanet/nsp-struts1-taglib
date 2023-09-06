@@ -1,6 +1,6 @@
-import { StringBuffer } from "../util/StringBuffer.js";
-import { TagUtils } from "../util/TagUtils.js";
-import { prepareAttribute } from "./BaseHandlerTag.js";
+import {StringBuffer} from "../util/StringBuffer.js";
+import {TagUtils} from "../util/TagUtils.js";
+import {prepareAttribute} from "./BaseHandlerTag.js";
 import {BaseInputTag} from "./BaseInputTag.js";
 import type {BaseInputTagAttr} from "./BaseInputTagAttr.js";
 
