@@ -23,7 +23,7 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
      */
     protected saveBody: string | Promise<string> = null;
 
-    render() {
+    async render() {
         const results = new StringBuffer()
         results.append(this.renderSelectStartElement());
 
@@ -33,15 +33,13 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
         this.calculateMatchValues();
 
         if (this.getBody() != null) {
-            let value = this.getBody();
+            let value = await this.getBody();
 
             if (value == null) {
                 value = "";
             }
 
-            // TODO
-            // this.saveBody = value.trim();
-            this.saveBody = value;
+            this.saveBody = value.trim();
         }
 
         // Remove the page scope attributes we created

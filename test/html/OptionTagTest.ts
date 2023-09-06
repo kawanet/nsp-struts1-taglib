@@ -23,7 +23,7 @@ describe(TITLE, () => {
 
         const ctx: Context = {};
 
-        assert.equal(render(ctx), '<select name="singleSelect" size="10"><option value="Single 0" title="0">Single 0</option></select>');
+        assert.equal(await render(ctx), '<select name="singleSelect" size="10"><option value="Single 0" title="0">Single 0</option></select>');
     });
 
     it('<html:option> only', async () => {

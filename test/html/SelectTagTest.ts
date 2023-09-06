@@ -23,6 +23,6 @@ describe(TITLE, () => {
 
         const ctx: Context = {};
 
-        assert.equal(render(ctx), '<select name="singleSelect" size="10"></select>');
+        assert.equal(await render(ctx), '<select name="singleSelect" size="10"></select>');
     });
 });
