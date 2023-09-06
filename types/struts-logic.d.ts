@@ -1,7 +1,7 @@
 import type {NSP} from "nsp-server-pages";
 
-export const logicTags: Struts1Logic.logicTags;
 
+export declare const logicTags: Struts1Logic.logicTags;
 /**
  * logic
  * uri: http://struts.apache.org/tags-logic
@@ -55,7 +55,7 @@ export const logicTags: Struts1Logic.logicTags;
  * problem, it is passed to the error page as a request attribute under key
  * <code>org.apache.struts.action.EXCEPTION</code>.</p>
  */
-declare namespace Struts1Logic {
+export declare namespace Struts1Logic {
     type logicTags = {
         empty: NSP.TagCon<EmptyTagAttr>;
         equal: NSP.TagCon<EqualTagAttr>;

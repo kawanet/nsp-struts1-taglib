@@ -1,7 +1,7 @@
 import type {NSP} from "nsp-server-pages";
 
-export const htmlTags: Struts1Html.htmlTags;
 
+export declare const htmlTags: Struts1Html.htmlTags;
 /**
  * html
  * uri: http://struts.apache.org/tags-html
@@ -19,7 +19,7 @@ export const htmlTags: Struts1Html.htmlTags;
  * problem, it is passed to the error page as a request attribute under key
  * <code>org.apache.struts.action.EXCEPTION</code>.</p>
  */
-declare namespace Struts1Html {
+export declare namespace Struts1Html {
     type htmlTags = {
         base: NSP.TagCon<BaseTagAttr>;
         button: NSP.TagCon<ButtonTagAttr>;

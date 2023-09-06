@@ -1,7 +1,7 @@
 import type {NSP} from "nsp-server-pages";
 
-export const beanTags: Struts1Bean.beanTags;
 
+export declare const beanTags: Struts1Bean.beanTags;
 /**
  * bean
  * uri: http://struts.apache.org/tags-bean
@@ -24,7 +24,7 @@ export const beanTags: Struts1Bean.beanTags;
  * problem, it is passed to the error page as a request attribute under key
  * <code>org.apache.struts.action.EXCEPTION</code>.</p>
  */
-declare namespace Struts1Bean {
+export declare namespace Struts1Bean {
     type beanTags = {
         cookie: NSP.TagCon<CookieTagAttr>;
         define: NSP.TagCon<DefineTagAttr>;
