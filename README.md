@@ -121,6 +121,33 @@ const {beanTags, htmlTags, logicTags} = require("nsp-struts1-taglib");
 
 Not supported yet.
 
+## INHERITANCE
+
+Import `struts1Impl` to inherit a class from the taglib.
+
+```ts
+import {Struts1Html} from "nsp-struts1-taglib";
+import {struts1Impl} from "nsp-struts1-taglib/impl";
+
+export class MyTextareaTag extends struts1Impl.html.TextareaTag {
+    protected attr: MyTextareaTagAttr;
+
+    render() {
+        const {some} = this.attr;
+        if (some) {
+            // do something
+        } else {
+            // do something else
+        }
+        return super.render();
+    }
+}
+
+interface MyTextareaTagAttr extends Struts1Html.TextareaTagAttr {
+    some?: string; // add your custom attributes here
+}
+```
+
 ## LINKS
 
 - https://github.com/kawanet/nsp-server-pages
