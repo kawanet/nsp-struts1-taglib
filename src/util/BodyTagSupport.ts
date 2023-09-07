@@ -1,5 +1,5 @@
 import {TagSupport} from "./TagSupport.js";
 
-export abstract class BodyTagSupport<T> extends TagSupport<T> {
-    //
+export abstract class BodyTagSupport<A> extends TagSupport<A> {
+    // just inherited
 }

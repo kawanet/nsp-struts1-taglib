@@ -42,7 +42,7 @@ const {beanTags, htmlTags, logicTags} = require("nsp-struts1-taglib");
 
 ## COMPATIBILITY
 
-35 / 58 tags implemented.
+35 / 58 tags implemented. Contributions for missing tags are welcome here!
 
 ## Struts Bean Tags
 

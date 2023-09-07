@@ -1,3 +1,6 @@
+/**
+ * attributes commonly used by child classes of BaseHandlerTag
+ */
 export interface BaseHandlerTagAttr {
     //  Navigation Management
 

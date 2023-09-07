@@ -1,5 +1,8 @@
 import {BaseHandlerTagAttr} from "./BaseHandlerTagAttr.js";
 
+/**
+ * attributes commonly used by child classes of BaseInputTag
+ */
 export interface BaseInputTagAttr extends BaseHandlerTagAttr {
     /**
      * Autocomplete non standard attribute

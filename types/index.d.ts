@@ -1,3 +1,6 @@
+/**
+ * @see https://github.com/kawanet/nsp-struts1-taglib
+ */
 import { Struts1Bean } from "./struts-bean.js";
 import { Struts1Html } from "./struts-html.js";
 import { Struts1Logic } from "./struts-logic.js";
