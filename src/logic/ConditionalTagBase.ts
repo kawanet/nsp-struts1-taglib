@@ -1,7 +1,7 @@
 import {TagSupport} from "../util/TagSupport.js";
 import {TagUtils} from "../util/TagUtils.js";
 
-export abstract class ConditionalTagBase<A extends Partial<ConditionalTagAttr>> extends TagSupport<A> {
+export abstract class ConditionalTagBase<A extends Partial<ConditionalTagBaseAttr>> extends TagSupport<A> {
     protected attr: A;
 
     render() {
@@ -25,7 +25,7 @@ export abstract class ConditionalTagBase<A extends Partial<ConditionalTagAttr>> 
     }
 }
 
-interface ConditionalTagAttr {
+export interface ConditionalTagBaseAttr {
     name?: string;
     property?: string;
     scope?: string;

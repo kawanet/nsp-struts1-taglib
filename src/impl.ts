@@ -42,8 +42,8 @@ import {SubmitTag} from "./html/SubmitTag.js";
 import {TextareaTag} from "./html/TextareaTag.js";
 import {TextTag} from "./html/TextTag.js";
 import {XhtmlTag} from "./html/XhtmlTag.js";
-import {CompareTagBase} from "./logic/CompareTagBase.js";
-import {ConditionalTagBase} from "./logic/ConditionalTagBase.js";
+import {CompareTagBase, CompareTagBaseAttr as _CompareTagBaseAttr} from "./logic/CompareTagBase.js";
+import {ConditionalTagBase, ConditionalTagBaseAttr as _ConditionalTagBaseAttr} from "./logic/ConditionalTagBase.js";
 import {EmptyTag} from "./logic/EmptyTag.js";
 import {EqualTag} from "./logic/EqualTag.js";
 import {ForwardTag} from "./logic/ForwardTag.js";
@@ -64,6 +64,11 @@ import {RedirectTag} from "./logic/RedirectTag.js";
 import {BodyTagSupport} from "./util/BodyTagSupport.js";
 import {StringBuffer} from "./util/StringBuffer.js";
 import {TagSupport} from "./util/TagSupport.js";
+
+export declare namespace struts1Impl.logic {
+    type CompareTagBaseAttr = _CompareTagBaseAttr;
+    type ConditionalTagBaseAttr = _ConditionalTagBaseAttr;
+}
 
 /**
  * @example

@@ -1,6 +1,6 @@
-import {ConditionalTagBase} from "./ConditionalTagBase.js";
+import {ConditionalTagBase, ConditionalTagBaseAttr} from "./ConditionalTagBase.js";
 
-export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends ConditionalTagBase<A> {
+export abstract class CompareTagBase<A extends Partial<CompareTagBaseAttr>> extends ConditionalTagBase<A> {
     protected attr: A;
 
     protected condition(): boolean {
@@ -39,9 +39,6 @@ export abstract class CompareTagBase<A extends Partial<CompareTagAttr>> extends 
     protected abstract compare(left: any, right: any): boolean;
 }
 
-interface CompareTagAttr {
-    name: string;
-    property: string;
+export interface CompareTagBaseAttr extends ConditionalTagBaseAttr {
     value: any;
-    scope?: string;
 }
