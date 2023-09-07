@@ -1,6 +1,5 @@
 import type {NSP} from "nsp-server-pages";
 
-
 export declare const beanTags: Struts1Bean.beanTags;
 /**
  * bean

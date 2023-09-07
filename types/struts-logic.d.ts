@@ -1,6 +1,5 @@
 import type {NSP} from "nsp-server-pages";
 
-
 export declare const logicTags: Struts1Logic.logicTags;
 /**
  * logic
