@@ -29,7 +29,7 @@
       "require": "./cjs/index.js"
     },
     "./impl": {
-      "types": "./types/impl.d.ts",
+      "types": "./tds/src/impl.d.ts",
       "import": "./esm/src/impl.js",
       "require": "./cjs/src/impl.js"
     }
@@ -42,6 +42,7 @@
     "esm/package.json",
     "esm/src/**/*.js",
     "package.json",
+    "tds/**/*.d.ts",
     "types/**/*.d.ts"
   ],
   "homepage": "https://github.com/kawanet/nsp-struts1-taglib#readme",
@@ -73,7 +74,7 @@
   "typesVersions": {
     "*": {
       "impl": [
-        "./types/impl.d.ts"
+        "./tds/src/impl.d.ts"
       ]
     }
   }

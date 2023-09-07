@@ -9,5 +9,6 @@
 /.idea/*.xml
 /node_modules
 /package-lock.json
+/tds/
 /tmp/
 ~$*
