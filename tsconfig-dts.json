@@ -2,16 +2,16 @@
   "exclude": [
     "node_modules/",
     "dts/",
-    "tmp/"
-  ],
-  "include": [
-    "index.ts",
-    "src/",
+    "tmp/",
     "test/",
     "types/"
   ],
+  "include": [
+    "src/",
+  ],
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "module": "ESNext",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -19,7 +19,7 @@
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "./esm/",
+    "outDir": "./dts/",
     "removeComments": false,
     "resolvePackageJsonExports": false,
     "skipLibCheck": false,
