@@ -64,6 +64,7 @@ import {RedirectTag} from "./logic/RedirectTag.js";
 import {BodyTagSupport} from "./util/BodyTagSupport.js";
 import {StringBuffer} from "./util/StringBuffer.js";
 import {TagSupport} from "./util/TagSupport.js";
+import {TagUtils} from "./util/TagUtils.js";
 
 export declare namespace struts1Impl.logic {
     type CompareTagBaseAttr = _CompareTagBaseAttr;
@@ -158,5 +159,6 @@ export const struts1Impl = {
         BodyTagSupport,
         StringBuffer,
         TagSupport,
+        TagUtils,
     },
 };
