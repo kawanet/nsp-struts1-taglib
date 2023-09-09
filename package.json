@@ -1,7 +1,7 @@
 {
   "name": "nsp-struts1-taglib",
   "description": "NSP taglib for Apache Struts1 Tag Library",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "author": "@kawanet",
   "bugs": {
     "url": "https://github.com/kawanet/nsp-struts1-taglib/issues"
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^10.0.1",
-    "@types/node": "^20.5.9",
+    "@types/node": "^20.6.0",
     "mocha": "^10.2.0",
     "nsp-server-pages": "^0.2.3",
     "typescript": "^5.2.2"
