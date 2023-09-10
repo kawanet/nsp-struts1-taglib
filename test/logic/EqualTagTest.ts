@@ -10,6 +10,11 @@ interface Context {
     bean?: { intProperty: number };
 }
 
+interface PartialRequest {
+    headers?: { [key: string]: string };
+    cookies?: { [key: string]: string };
+}
+
 /**
  * <logic:equal>
  */
@@ -67,5 +72,43 @@ describe(TITLE, () => {
 
         ctx = {intValue: 8};
         assert.equal(render(ctx), '[]', JSON.stringify(ctx));
+    });
+
+    it('<logic:equal header="">', async () => {
+        const src: string = '[<logic:equal header="x-value" value="foo">TRUE</logic:equal>]';
+        const render = nsp.parse(src).toFn<Context>();
+
+        {
+            const ctx: Context = {};
+            const headers = {"x-value": "foo"};
+            nsp.store<PartialRequest>(ctx, "req").set({headers});
+            assert.equal(render(ctx), '[TRUE]', JSON.stringify(headers));
+        }
+
+        {
+            const ctx: Context = {};
+            const headers = {"x-value": "bar"};
+            nsp.store<PartialRequest>(ctx, "req").set({headers});
+            assert.equal(render(ctx), '[]', JSON.stringify(headers));
+        }
+    });
+
+    it('<logic:equal cookie="">', async () => {
+        const src: string = '[<logic:equal cookie="x-value" value="bar">TRUE</logic:equal>]';
+        const render = nsp.parse(src).toFn<Context>();
+
+        {
+            const ctx: Context = {};
+            const cookies = {"x-value": "foo"};
+            nsp.store<PartialRequest>(ctx, "req").set({cookies});
+            assert.equal(render(ctx), '[]', JSON.stringify(cookies));
+        }
+
+        {
+            const ctx: Context = {};
+            const cookies = {"x-value": "bar"};
+            nsp.store<PartialRequest>(ctx, "req").set({cookies});
+            assert.equal(render(ctx), '[TRUE]', JSON.stringify(cookies));
+        }
     });
 });
