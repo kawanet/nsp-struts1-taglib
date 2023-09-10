@@ -11,12 +11,19 @@ export abstract class CompareTagBase<A extends Partial<CompareTagBaseAttr>> exte
      * helper method to retrieve the left-side variable to compare
      */
     protected getLeft(): any {
-        const {name} = this.attr;
+        const {cookie, header, name, parameter} = this.attr;
 
         let variable: any;
 
-        if (name) {
+        if (cookie) {
+            const cookies = this.getRequest().getCookies() ?? [];
+            variable = cookies.find(v => v.getName() === cookie)?.getValue();
+        } else if (header) {
+            variable = this.getRequest().getHeader(header);
+        } else if (name) {
             variable = this.lookup();
+        } else if (parameter) {
+            variable = this.context[parameter];
         }
 
         if (variable == null) {
@@ -40,5 +47,8 @@ export abstract class CompareTagBase<A extends Partial<CompareTagBaseAttr>> exte
 }
 
 export interface CompareTagBaseAttr extends ConditionalTagBaseAttr {
+    cookie?: string;
+    header?: string;
+    parameter?: string;
     value: any;
 }
