@@ -11,12 +11,14 @@ export abstract class CompareTagBase<A extends Partial<CompareTagBaseAttr>> exte
      * helper method to retrieve the left-side variable to compare
      */
     protected getLeft(): any {
-        const {name} = this.attr;
+        const {name, parameter} = this.attr;
 
         let variable: any;
 
         if (name) {
             variable = this.lookup();
+        } else if (parameter) {
+            variable = this.context[parameter];
         }
 
         if (variable == null) {
@@ -40,5 +42,6 @@ export abstract class CompareTagBase<A extends Partial<CompareTagBaseAttr>> exte
 }
 
 export interface CompareTagBaseAttr extends ConditionalTagBaseAttr {
+    parameter?: string;
     value: any;
 }
