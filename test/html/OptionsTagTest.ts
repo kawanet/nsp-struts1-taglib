@@ -5,7 +5,10 @@ import {htmlTags} from "../../index.js";
 const TITLE = "test/html/OptionsTagTest.ts";
 
 interface Context {
-    //
+    bean: {
+        color1: string;
+    },
+    colors: string[];
 }
 
 /**
@@ -17,12 +20,25 @@ describe(TITLE, () => {
     nsp.addTagLib({ns: "html", tag: htmlTags});
 
     it('<html:options>', async () => {
-        const src: string = '[]'; // TODO
+        const src: string = `
+<html:select name="bean" property="color1" size="7">
+<html:options name="colors" />
+</html:select>
+`;
 
         const render = nsp.parse(src).toFn<Context>();
 
-        const ctx: Context = {};
+        const ctx: Context = {
+            bean: {
+                color1: "green",
+            },
+            colors: ["red", "green", "blue"]
+        };
 
-        assert.equal(render(ctx), '[]');
+        assert.equal(await render(ctx), `
+<select name="color1" size="7"><option value="red">red</option>
+<option value="green" selected="selected">green</option>
+<option value="blue">blue</option></select>
+`.trim());
     });
 });
