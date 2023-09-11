@@ -7,7 +7,13 @@ const TITLE = "test/logic/EqualTagTest.ts";
 interface Context {
     intValue?: number;
 
-    bean?: { intProperty: number };
+    bean?: {
+        intProperty?: number;
+        stringProperty?: string;
+        getStringProperty?: () => string;
+    };
+
+    map?: Map<string, string>;
 }
 
 interface PartialRequest {
@@ -110,5 +116,31 @@ describe(TITLE, () => {
             nsp.store<PartialRequest>(ctx, "req").set({cookies});
             assert.equal(render(ctx), '[TRUE]', JSON.stringify(cookies));
         }
+    });
+
+    it('<logic:equal> using getter method', async () => {
+        const src: string = '[<logic:equal name="bean" property="stringProperty" value="foo">TRUE</logic:equal>]';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        assert.equal(render({bean: {stringProperty: "foo"}}), '[TRUE]', "#1");
+        assert.equal(render({bean: {getStringProperty: () => "foo"}}), '[TRUE]', "#2");
+
+        assert.equal(render({bean: {stringProperty: "bar"}}), '[]', "#3");
+        assert.equal(render({bean: {getStringProperty: () => "bar"}}), '[]', "#4");
+    });
+
+    it('<logic:equal> using MapLike', async () => {
+        const src: string = '[<logic:equal name="map" property="stringProperty" value="foo">TRUE</logic:equal>]';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        const map = new Map();
+
+        map.set("stringProperty", "foo");
+        assert.equal(render({map}), '[TRUE]', "#1");
+
+        map.set("stringProperty", "bar");
+        assert.equal(render({map}), '[]', "#2");
     });
 });
