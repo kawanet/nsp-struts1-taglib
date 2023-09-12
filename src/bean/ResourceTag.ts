@@ -1,7 +1,6 @@
 import type {Struts1Bean} from "../../index.js";
+import {toBoolean} from "../internal/toBoolean.js";
 import {TagSupport} from "../util/TagSupport.js";
-
-const isTrue = (v: any): v is true => (!!v && v !== "false");
 
 /**
  * <bean:resource>
@@ -24,7 +23,7 @@ export class ResourceTag extends TagSupport<Struts1Bean.ResourceTagAttr> {
         const {context} = this;
         const {name, id, input} = this.attr;
 
-        if (isTrue(input)) {
+        if (toBoolean(input)) {
             throw new Error(`Not implemented: <bean:resource input="true">`);
         }
 

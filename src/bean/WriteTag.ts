@@ -1,12 +1,11 @@
 import type {Struts1Bean} from "../../index.js";
+import {toBoolean} from "../internal/toBoolean.js";
 import {TagSupport} from "../util/TagSupport.js";
 import {TagUtils} from "../util/TagUtils.js";
 
 interface Format {
     format(value: any): string;
 }
-
-const isFalse = (v: any): v is false => (v === false || v === "false");
 
 /**
  * <bean:write>
@@ -42,7 +41,7 @@ export class WriteTag extends TagSupport<Struts1Bean.WriteTagAttr> {
         const output = this.formatValue(value);
 
         // Print this property value to our output writer, suitably filtered
-        if (!isFalse(filter)) {
+        if (toBoolean(filter) !== false) {
             return TagUtils.getInstance().filter(output);
         } else {
             return output;
