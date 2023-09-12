@@ -82,7 +82,7 @@ const {beanTags, htmlTags, logicTags} = require("nsp-struts1-taglib");
 | `<html:messages>`          | MessagesTag            | 🕑 Not Yet |                                     |
 | `<html:multibox>`          | MultiboxTag            | 👍 OK      |                                     |
 | `<html:optionsCollection>` | OptionsCollectionTag   | 🕑 Not Yet |                                     |
-| `<html:options>`           | OptionsTag             | 🕑 Not Yet |                                     |
+| `<html:options>`           | OptionsTag             | 👍 OK      | some features not supported yet     |
 | `<html:option>`            | OptionTag              | 👍 OK      | message resources not supported yet |
 | `<html:param>`             | ParamTag               | 🕑 Not Yet |                                     |
 | `<html:password>`          | PasswordTag            | 🕑 Not Yet |                                     |

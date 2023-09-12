@@ -1,4 +1,5 @@
 import type {Struts1Html} from "../../index.js";
+import {toBoolean} from "../internal/toBoolean.js";
 import {BeanUtils} from "../util/BeanUtils.js";
 import {StringBuffer} from "../util/StringBuffer.js";
 import {TagUtils} from "../util/TagUtils.js";
@@ -85,7 +86,7 @@ export class SelectTag extends BaseHandlerTag<Struts1Html.SelectTagAttr> {
         // TODO
         // prepareAttribute(results, "accesskey", attr.accesskey);
 
-        if (attr.multiple != null && !(attr.multiple === "false")) {
+        if (toBoolean(attr.multiple)) {
             results.append(" multiple=\"multiple\"");
         }
 

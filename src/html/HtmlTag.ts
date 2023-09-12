@@ -1,8 +1,7 @@
 import type {Struts1Html} from "../../index.js";
+import {toBoolean} from "../internal/toBoolean.js";
 import {StringBuffer} from "../util/StringBuffer.js";
 import {TagSupport} from "../util/TagSupport.js";
-
-const isTrue = (v: any): v is true => (!!v && v !== "false");
 
 /**
  * <html:html>
@@ -31,7 +30,7 @@ export class HtmlTag extends TagSupport<Struts1Html.HtmlTagAttr> {
         // language = currentLocale.getLanguage();
         // country = currentLocale.getCountry();
 
-        if (language && isTrue(this.attr.lang)) {
+        if (language && toBoolean(this.attr.lang)) {
             sb.append(" lang=\"");
             sb.append(language);
 
