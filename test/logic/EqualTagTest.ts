@@ -9,13 +9,25 @@ interface Context {
 
     bean?: {
         intProperty?: number;
-        booleanProperty?: boolean;
         stringProperty?: string;
         getStringProperty?: () => string;
     };
 
     map?: Map<string, string>;
+
+    types?: typeof types,
 }
+
+const types = {
+    TRUE: true,
+    FALSE: false,
+    NULL: null as null,
+    EMPTY: "",
+    STRING1: "1",
+    STRING0: "0",
+    NUMBER1: 1,
+    NUMBER0: 0,
+};
 
 interface PartialRequest {
     headers?: { [key: string]: string };
@@ -146,20 +158,56 @@ describe(TITLE, () => {
     });
 
     it('<logic:equal value="true">', async () => {
-        const src: string = '[<logic:equal name="bean" property="booleanProperty" value="true">TRUE</logic:equal>]';
+        const src: string = `
+<li>TRUE: <logic:equal name="types" property="TRUE" value="true">TRUE</logic:equal></li>
+<li>FALSE: <logic:equal name="types" property="FALSE" value="true">TRUE</logic:equal></li>
+<li>NULL: <logic:equal name="types" property="NULL" value="true">TRUE</logic:equal></li>
+<li>EMPTY: <logic:equal name="types" property="EMPTY" value="true">TRUE</logic:equal></li>
+<li>STRING1: <logic:equal name="types" property="STRING1" value="true">TRUE</logic:equal></li>
+<li>STRING0: <logic:equal name="types" property="STRING0" value="true">TRUE</logic:equal></li>
+<li>NUMBER1: <logic:equal name="types" property="NUMBER1" value="true">TRUE</logic:equal></li>
+<li>NUMBER0: <logic:equal name="types" property="NUMBER0" value="true">TRUE</logic:equal></li>
+`;
+
+        const expected = `
+<li>TRUE: TRUE</li>
+<li>FALSE: </li>
+<li>NULL: </li>
+<li>EMPTY: </li>
+<li>STRING1: </li>
+<li>STRING0: </li>
+<li>NUMBER1: </li>
+<li>NUMBER0: </li>
+`;
 
         const render = nsp.parse(src).toFn<Context>();
-
-        assert.equal(render({bean: {booleanProperty: true}}), '[TRUE]', "#1");
-        assert.equal(render({bean: {booleanProperty: false}}), '[]', "#2");
+        assert.equal(render({types}), expected);
     });
 
     it('<logic:equal value="false">', async () => {
-        const src: string = '[<logic:equal name="bean" property="booleanProperty" value="false">FALSE</logic:equal>]';
+        const src: string = `
+<li>TRUE: <logic:equal name="types" property="TRUE" value="false">FALSE</logic:equal></li>
+<li>FALSE: <logic:equal name="types" property="FALSE" value="false">FALSE</logic:equal></li>
+<li>NULL: <logic:equal name="types" property="NULL" value="false">FALSE</logic:equal></li>
+<li>EMPTY: <logic:equal name="types" property="EMPTY" value="false">FALSE</logic:equal></li>
+<li>STRING1: <logic:equal name="types" property="STRING1" value="false">FALSE</logic:equal></li>
+<li>STRING0: <logic:equal name="types" property="STRING0" value="false">FALSE</logic:equal></li>
+<li>NUMBER1: <logic:equal name="types" property="NUMBER1" value="false">FALSE</logic:equal></li>
+<li>NUMBER0: <logic:equal name="types" property="NUMBER0" value="false">FALSE</logic:equal></li>
+`;
+
+        const expected: string = `
+<li>TRUE: </li>
+<li>FALSE: FALSE</li>
+<li>NULL: </li>
+<li>EMPTY: </li>
+<li>STRING1: </li>
+<li>STRING0: </li>
+<li>NUMBER1: </li>
+<li>NUMBER0: </li>
+`;
 
         const render = nsp.parse(src).toFn<Context>();
-
-        assert.equal(render({bean: {booleanProperty: true}}), '[]', "#1");
-        assert.equal(render({bean: {booleanProperty: false}}), '[FALSE]', "#2");
+        assert.equal(render({types}), expected);
     });
 });
