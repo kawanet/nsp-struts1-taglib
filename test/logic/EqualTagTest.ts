@@ -9,6 +9,7 @@ interface Context {
 
     bean?: {
         intProperty?: number;
+        booleanProperty?: boolean;
         stringProperty?: string;
         getStringProperty?: () => string;
     };
@@ -142,5 +143,23 @@ describe(TITLE, () => {
 
         map.set("stringProperty", "bar");
         assert.equal(render({map}), '[]', "#2");
+    });
+
+    it('<logic:equal value="true">', async () => {
+        const src: string = '[<logic:equal name="bean" property="booleanProperty" value="true">TRUE</logic:equal>]';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        assert.equal(render({bean: {booleanProperty: true}}), '[TRUE]', "#1");
+        assert.equal(render({bean: {booleanProperty: false}}), '[]', "#2");
+    });
+
+    it('<logic:equal value="false">', async () => {
+        const src: string = '[<logic:equal name="bean" property="booleanProperty" value="false">FALSE</logic:equal>]';
+
+        const render = nsp.parse(src).toFn<Context>();
+
+        assert.equal(render({bean: {booleanProperty: true}}), '[]', "#1");
+        assert.equal(render({bean: {booleanProperty: false}}), '[FALSE]', "#2");
     });
 });
