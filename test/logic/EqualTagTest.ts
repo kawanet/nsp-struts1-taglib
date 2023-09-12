@@ -210,4 +210,31 @@ describe(TITLE, () => {
         const render = nsp.parse(src).toFn<Context>();
         assert.equal(render({types}), expected);
     });
+
+    it('<logic:equal value="">', async () => {
+        const src: string = `
+<li>TRUE: <logic:equal name="types" property="TRUE" value="">EMPTY</logic:equal></li>
+<li>FALSE: <logic:equal name="types" property="FALSE" value="">EMPTY</logic:equal></li>
+<li>NULL: <logic:equal name="types" property="NULL" value="">EMPTY</logic:equal></li>
+<li>EMPTY: <logic:equal name="types" property="EMPTY" value="">EMPTY</logic:equal></li>
+<li>STRING1: <logic:equal name="types" property="STRING1" value="">EMPTY</logic:equal></li>
+<li>STRING0: <logic:equal name="types" property="STRING0" value="">EMPTY</logic:equal></li>
+<li>NUMBER1: <logic:equal name="types" property="NUMBER1" value="">EMPTY</logic:equal></li>
+<li>NUMBER0: <logic:equal name="types" property="NUMBER0" value="">EMPTY</logic:equal></li>
+`;
+
+        const expected: string = `
+<li>TRUE: </li>
+<li>FALSE: </li>
+<li>NULL: EMPTY</li>
+<li>EMPTY: EMPTY</li>
+<li>STRING1: </li>
+<li>STRING0: </li>
+<li>NUMBER1: </li>
+<li>NUMBER0: </li>
+`;
+
+        const render = nsp.parse(src).toFn<Context>();
+        assert.equal(render({types}), expected);
+    });
 });
