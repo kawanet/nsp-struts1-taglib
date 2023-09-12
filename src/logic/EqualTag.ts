@@ -11,10 +11,16 @@ export class EqualTag extends CompareTagBase<Struts1Logic.EqualTagAttr> {
     protected attr: Struts1Logic.EqualTagAttr;
 
     protected compare(left: any, right: any) {
+        if (left == null || left === "") {
+            return (right == null || right === "");
+        } else if (right == null || right === "") {
+            return (left == null || left === "");
+        }
+
         if ("boolean" === typeof left) {
-            right = !!toBoolean(right);
+            right = toBoolean(right);
         } else if ("boolean" === typeof right) {
-            left = !!toBoolean(left);
+            left = toBoolean(left);
         }
 
         return left == right;
