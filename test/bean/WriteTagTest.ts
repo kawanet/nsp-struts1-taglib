@@ -59,4 +59,11 @@ describe(TITLE, () => {
         render = nsp.parse('Unfiltered text: <bean:write name="example" property="html" filter="false"/>').toFn<Context>();
         assert.equal(render(ctx), 'Unfiltered text: <p>This is a <strong>simple</strong> example of <em>HTML</em> formatted text.</p>');
     });
+
+    // Test for PR #15 PropertyUtilsBean
+    it('property="list[0].value"', async () => {
+        ctx.example.list = [{value: "FOO"}];
+        const render = nsp.parse('[<bean:write name="example" property="list[0].value"/>]').toFn<Context>();
+        assert.equal(render(ctx), '[FOO]');
+    });
 });
