@@ -12,7 +12,7 @@ export class PropertyUtilsBean {
     }
 
     getProperty<T>(bean: any, name: string): T {
-        const array = String(name).split(/\.|\[(\d+)]/);
+        const array = String(name).split(/\.|\[(\d+)]/).filter(v => (v != null && v !== ""));
 
         for (const key of array) {
             if (key === "") continue;
